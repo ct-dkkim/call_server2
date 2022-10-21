@@ -1,0 +1,37 @@
+<?
+$dbinfo['host']="+IQRs9n/JZzFFxoAW4KB9A==";
+$dbinfo['port']="foQk75skybolJ8FopfzARQ==";
+$dbinfo['user']="afGUn2eWC8Rm5THy23KMPg==";
+$dbinfo['pass']="Y8ydmKkaRMuJRgHaylbSBQ==";
+$dbinfo['name']="rmfEnM+1DiMtG6R3mZHglQ==";
+$dbinfo['name2']="YwI0obhgESCjkEJPLTJrdA==";
+
+$config['useHttps'] = "0" ; 			// SSL 접속 허용 
+$config['ptt_server']="1";							//ptt_Server db연동 여부
+$config['loginTimeGap']="14400";		//로그인유지시간 (단위:SECOND)
+$config['keepMonth']="24";				//LOG 데이타 보존 기간 (단위:MONTH)
+
+/*
+$config['lockTime']="1200";				//락유지 유효시간 (접속후 20분 이후 LOCK 불용 처리)(단위:SECOND)
+$config['keepMonth']="24";				//PTTBILL,LOG,SMS 데이타 보존 기간 (단위:MONTH)
+$config['sleepTime']="3";				//PTTPHONE import->Initialize 시 sleep time설정 (단위:SECOND)
+$config['loginTimeGap']="14400";		//로그인유지시간 (단위:SECOND)
+$config['pwMonth']="5";					//비밀번호 변경 기간(단위:MONTH)
+
+
+*/
+#### 허용 불가 아이디
+$aNotId=array("","abcd","admin", "administrator", "manager", "guest", "test", "scott", "tomcat", "root", "user", "operator", "anonymous", "aaaa","server");
+
+$decryptKey = "aeverytalkcybertelstuvwxyz235912";	
+
+//$arrLanguage=array("eng"=>"English","kor"=>"Korea","jap"=>"Japan");
+$arrLanguage=array("eng"=>"English","kor"=>"Korean");
+
+//system 명
+
+
+
+
+$CLKpath ="/PHPExcel/Reader/";
+?>
