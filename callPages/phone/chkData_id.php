@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=utf-8 ');
-test
+
 include_once dirname(__FILE__) . "/../../lib/setConfig.php";
     //create the SQL query string
     $user=$_POST[ user_id ];
