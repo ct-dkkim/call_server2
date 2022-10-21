@@ -3,7 +3,7 @@ $dbinfo['host']="Y28ZxFWSk0i5GBL6LKUTaRmI4vVB0H+JQZ30WtxpmVU=";
 $dbinfo['port']="3dT6qsyLz+6JjwR/HlrQ4SGuJ27Vq4LSKYqFfhDdwIg=";
 $dbinfo['user']="US/CySeHRuLZ98gnLkqRAJAYF+4S0XgXIaCdw1xspvI=";
 $dbinfo['pass']="CHBehZAcI2tELCPW1xUXXsgBfqRx87wuN77iUvBb3mZ/TvfexmFBVntaY6y/gc89";
-$dbinfo['name']="2R95Hi6fHE4lvhZRsyyof6DvZZysSegKYTdrwXjR/c4=";
+$dbinfo['name']="TyZf7FlxU20Gjt4Tx1BycfcdlZbX2/8+dRihhX0CtFE=";
 $dbinfo['name2']="O8lnqXUfBxTm1uiiyL4cSrCJWoK53dwjeihMRrC6gts=";
 
 $config['useHttps'] = "0" ; 			// SSL 접속 허용 

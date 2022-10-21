@@ -89,7 +89,7 @@ class ringGroup Extends Page {
 			else $bg="style='background-color:#ffffff'";
 
 			//체크여부처리
-			$arrChkOk= array_search(trim($data[RCODE]),$arrChk);
+			$arrChkOk= array_search(trim($data['RCODE']),$arrChk);
 			if ($arrChkOk > 0) {
 				$checked="checked";
 			}else {

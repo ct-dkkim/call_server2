@@ -15,7 +15,7 @@ if ($config['useHttps']=="1" && $_SERVER['HTTPS'] != "on") {
 	echo"<meta http-equiv=\"refresh\" content=\"0; url=$ssl_url\">";
 	exit;
 }
-$_home_dir="/call_server/";                 //사용할 폴더명
+$_home_dir="/call_server2";                 //사용할 폴더명
 $_home_path= getenv('DOCUMENT_ROOT').$_home_dir;
 $session_path=$_home_path."/.data_session/";
 

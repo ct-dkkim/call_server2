@@ -7,6 +7,10 @@ foreach($_POST as $_tmp['k'] => $_tmp['v']) {
 }
 $name =addslashes(str_replace("ㅤ","",$name));
 
+if (strpos($_SERVER['HTTP_REFERER'],"/callPages/phone/") ===false) {
+	die("error");
+}
+
 if(getenv("REQUEST_METHOD") == 'GET' ) Error($msg['permit1'],"../outline/blank.php");
 if (!$rec) $rec=0 ; 
 $dbinfo['name2']=decrypt($decryptKey,$dbinfo['name2']);

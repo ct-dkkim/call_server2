@@ -31,9 +31,9 @@ if($admin_info["user_id"]){
 <meta charset="utf-8">
 <meta name="viewport" content="width=1024">
 <link rel="stylesheet" href="<?=$_home_dir?>/css/common.css" /><!-- 추후 경로 변경하고 사용 -->
-
-<script src="<?=$_home_dir?>/js/jquery-1.9.1.min.js"></script>
-<script src="<?=$_home_dir?>/js/jquery.easing.1.3.js"></script>
+<link rel="icon" href="data:;base64,=">
+<script src="<?=$_home_dir?>/js/jquery-3.6.0.min.js"></script>
+<script src="<?=$_home_dir?>/js/jquery.easing.1.4.js"></script>
 <script src="<?=$_home_dir?>/js/gibberish-aes.js"></script>
 <script src="<?=$_home_dir?>/js/common.js"></script>
 <script src="<?=$_home_dir?>/js/common2.js"></script>

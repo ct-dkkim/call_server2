@@ -203,12 +203,12 @@ function fnClickCheck2(obj , bg) {
     }else{//bg
       txt =  elemt.css("background-image");
       //console.log(txt);
-      elemt.focusin(function(){
+      elemt.on("focusin",function(){
         if(elemt.val() == ""){
             elemt.css("background-image","none");
          }
       })//focusin
-       elemt.focusout(function(){
+       elemt.on("focusout",function(){
         if(elemt.val() == ""){
             elemt.css("background-image",txt);
         }

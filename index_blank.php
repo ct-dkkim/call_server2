@@ -9,8 +9,8 @@
 <meta name="viewport" content="width=1024">
 <link rel="stylesheet" href="./css/common.css" /><!-- 추후 경로 변경하고 사용 -->
 
-<script src="./js/jquery-1.9.1.min.js"></script>
-<script src="./js/jquery.easing.1.3.js"></script>
+<script src="./js/jquery-3.6.0.min.js"></script>
+<script src="./js/jquery.easing.1.4.js"></script>
 <script src="./js/gibberish-aes.js"></script>
 <script src="./js/common.js"></script>
 <script src="./js/common2.js"></script>

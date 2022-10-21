@@ -5,8 +5,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="initial-scale=1, width=device-width" user-scalable="no" /> 
 <link rel="stylesheet" href="<?=$_home_dir?>/css/common.css" />
+<link rel="icon" href="data:;base64,=">
 <!-- <link rel="stylesheet" type="text/css" href="<?=$_home_dir?>/css/jquery-ui.css">-->
-<script src="<?=$_home_dir?>/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="<?=$_home_dir?>/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="<?=$_home_dir?>/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="<?=$_home_dir?>/js/ajax.js"></script>
 <!--<script src="<?=$_home_dir?>/js/jquery.idletimer.js"></script>
