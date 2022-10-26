@@ -2,7 +2,7 @@
 include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 
  ##로그기록
-$pageKey="routingDigit";
+$pageKey="prefix";
 if (strpos($_SESSION['viewLog'],$pageKey) ===false) {
 	regLog($admin_info['user_id'], '3','view','', '' ,'ENG',$reg_date,'rout_prefix') ;
 	if (!$_SESSION['viewLog']){
@@ -108,8 +108,7 @@ $html_routing=selectbox("frouting",$arrRouting,$frouting,$titRouting['listTitle'
 				ajaxObjects[ajaxIndex].setVar("key", key);
 				ajaxObjects[ajaxIndex].setVar("levelKey", $("#fLevelKey").val());
 				ajaxObjects[ajaxIndex].requestFile = "./input.php";	
-				ajaxObjects[ajaxIndex].onCompletion = function() { viewGetValueComplete(ajaxIndex,top); } ;			
-				ajaxObjects[ajaxIndex].runAJAX();	
+				ajaxObjects[ajaxIndex].onCompletion = function() { viewGetValueComplete(ajaxIndex,top); } ;			ajaxObjects[ajaxIndex].runAJAX();	
 
 			}		
 			
