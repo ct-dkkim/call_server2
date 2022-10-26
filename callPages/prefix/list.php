@@ -70,6 +70,8 @@ $html_routing=selectbox("frouting",$arrRouting,$frouting,$titRouting['listTitle'
 
 			  //신규등록
 			  $("#BtnAdd").click(function(e){
+				var top=e.pageY - 50
+				viewGetValue('',top)
 
 			  });	
 
@@ -185,8 +187,12 @@ $html_routing=selectbox("frouting",$arrRouting,$frouting,$titRouting['listTitle'
 		<div class="paginate" id='divPage'>
 		</div>
 		<div class="bbs_btn ta_right fr">
+			<? if ($alevel['add']=="Y") { ?>
 				<button onclick="return false" id="BtnAdd" class="btn_nor btn_point"><?=$tit['btn']['add']?></button>
+			<? } ?>
+			<? if ($alevel['del']=="Y") { ?>
 				<button onclick="return false" id="BtnDelete" class="btn_nor btn_grey"><?=$tit['btn']['del']?></button>
+			<? }?>
 		</div>
 	</div>
 </div>
