@@ -56,7 +56,6 @@ class prefix Extends Page {
 			  //검색조건이 전체일때 통합검색
 			  $where[] ="IPADDR  like '%$word%'";		  	
 			  $where[] ="PREFIX like '%$word%'";
-			  $where[] ="ROUTING_IP  like '%$word%'";
 			  $whr=implode(" or ", $where);
               $this->where[] ="($whr)";			
 		  }

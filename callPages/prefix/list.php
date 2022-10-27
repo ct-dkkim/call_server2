@@ -91,8 +91,12 @@ $html_routing=selectbox("frouting",$arrRouting,$frouting,$titRouting['listTitle'
 
 			  //##### 검색
 			  $("#BtnSearch").click(function(e){
+				 var params = [ 'find','word','frouting','page_num'];
+ 		    	 var delparams = [ 'page' ];
+				 chgListVars(params,delparams);
 			  });
 
+			  
 
 			  // reset
 			  $("#BtnReset").click(function(e){
@@ -108,6 +112,10 @@ $html_routing=selectbox("frouting",$arrRouting,$frouting,$titRouting['listTitle'
 
 
 			})
+
+			function submitSerch() {
+				$("#BtnSearch").trigger('click');
+			}
 
 
 			//#####검색 셀렉트 적용
