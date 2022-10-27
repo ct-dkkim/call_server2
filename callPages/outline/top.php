@@ -94,9 +94,10 @@ function myInfoComplete(index)		{
 					<div class="lnb_layer_wrap">
 					</div>
 				</li>
-				<li class="hd_lnb02 lnb_step01 <?=$memu2?>"><a href="../routingDigit/list.php"><?=$tit['mainTitle']['routing']?><span class="arrow"></span><span class="shadow"></span></a>
+				<li class="hd_lnb02 lnb_step01 <?=$memu2?>"><a href="../prefix/list.php"><?=$tit['mainTitle']['routing']?><span class="arrow"></span><span class="shadow"></span></a>
 					<div class="lnb_layer_wrap">
 						<ul class="w_custom">
+							<li class="first"><a href="../prefix/list.php" class="<?=$subMenu1_1?>"><?=$tit['mainTitle']['rout_prefix']?></a></li>
 							<li><a href="../routingIP/list.php" class="<?=$subMenu1_2?>"><?=$tit['mainTitle']['rout_ip']?></a></li>
 							<li class="last"><a href="../routingGroup/list.php" class="<?=$subMenu1_3?>"><?=$tit['mainTitle']['rout_group']?></a></li>
 						</ul>					

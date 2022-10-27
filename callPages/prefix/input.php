@@ -89,7 +89,7 @@ function requestChkInfo() {
 			success: function(data){
 				data = $.trim(data)
                 if (data.length > 2) {
-					alert("<?=$msgRouting['dubleIP']?>");
+					alert("<?=$msgRouting['dublePrefix']?>");
                     $("#prefix").select()
                     $("#prefix").focus()
                     return false

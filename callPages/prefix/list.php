@@ -134,7 +134,7 @@ $html_routing=selectbox("frouting",$arrRouting,$frouting,$titRouting['listTitle'
 <div id="container" class="w_custom">
 	<!-- 기본형 시작 -->
 	<div class="sub_head1 clear ">
-		<h2 class="sub_head_title fl">Title</h2>
+		<h2 class="sub_head_title fl"><?=$tit['mainTitle']['rout_prefix']?></h2>
 	</div>
 	<div class="sub_head2 clear ">
 		<div class="fl" id="divPageNum"></div>
@@ -154,6 +154,11 @@ $html_routing=selectbox("frouting",$arrRouting,$frouting,$titRouting['listTitle'
 		</div>
 	</div>	
 	<form name="fmList" id='fmList' method="post" >
+	<input type=hidden name="vars" id='vars' value="<?=$_SESSION['Vars']?>" size="80">     <!--ajax 리스트 변수-->
+	<input type=hidden name="fLevelKey" id='fLevelKey' value="<?=$levelKey?>">     <!--접근 레벨 키 -->	
+	<input type=hidden name="page" id='page' value="<?=$page?>">
+	<input type=hidden name="allchk" id='allchk' value='<?=$allchk?>' >
+	<input type=hidden name="chkvalue" id="chkvalue" value="<?=$chkvalue?>">
 
 	<table class="bbs_table_list" cellpadding="0" cellspacing="0" border="0">
 		<colgroup>
