@@ -5,7 +5,7 @@ if (strpos($_SERVER['HTTP_REFERER'],"list.php") ===false) {
 }
 include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 include_once dirname(__FILE__) . "/../../lib/pageClass.php";
-include_once dirname(__FILE__) . "/../../lib/routingprefixClass.php";
+include_once dirname(__FILE__) . "/../../lib/prefixClass.php";
 
 
 
@@ -18,7 +18,7 @@ if (!$_SESSION['Vars']){
 	$_SESSION['Vars']=$vars;
 }
 if (!$_GET['page_num']) $_GET['page_num']="20";
-$setClass=new routingIP($_GET['page'],$_GET['page_num']);
+$setClass=new prefix($_GET['page'],$_GET['page_num']);
 $setClass->_set();
 
 
