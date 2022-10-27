@@ -64,6 +64,20 @@ $html_routing=selectbox("frouting",$arrRouting,$frouting,$titRouting['listTitle'
 			  
 			  //선택삭제
 			  $("#BtnDelete").click(function(e){
+				var top=e.pageY - 100
+
+				 if ( $('#chkvalue').val() !='') {
+					 if (confirm("<?=$msg['delete']?>"))   {
+						var ajaxIndex = ajaxObjects.length;
+						ajaxObjects[ajaxIndex] = new sack();
+						ajaxObjects[ajaxIndex].method = "POST";
+						ajaxObjects[ajaxIndex].requestFile = "./del.php";	
+						ajaxObjects[ajaxIndex].onCompletion = function() { viewGetValueComplete(ajaxIndex,top); } ;
+						ajaxObjects[ajaxIndex].runAJAX();	
+					 }
+				} else {
+				  alert("<?=$msg['delSelected']?>")
+				}
 
 			  });
 
