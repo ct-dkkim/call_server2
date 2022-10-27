@@ -15,7 +15,7 @@ class prefix Extends Page {
 
         //항목 링크 정렬
         if (!$_GET['order']) {
-			$this->order="IPADDR";		
+			$this->order="PREFIX";		
 			$this->desc = "DESC" ; 
 		} else {
 			$this->order=$_GET['order'];
