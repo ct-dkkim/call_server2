@@ -67,7 +67,7 @@
 				if ( $.trim($("#ipaddr").val()) !="") {
 					if (!RegexIp.test($.trim($("#ipaddr").val())) ) {
 						alert("<?=$titPhone['errIp']?>");
-				dublePrefix		$("#ipaddr").focus();
+						$("#ipaddr").focus();
 						return false;
 					}
 				}
