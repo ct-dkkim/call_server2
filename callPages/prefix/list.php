@@ -96,6 +96,14 @@ $html_routing=selectbox("frouting",$arrRouting,$frouting,$titRouting['listTitle'
 
 			  // reset
 			  $("#BtnReset").click(function(e){
+				var params = [ 'find','word','frouting'];
+				 for(var i=0; i<params.length;i++) {
+				 	$("#"+params[i]).val('')
+				 }
+				 $("#page_num").val('20')
+
+ 		    	 var delparams = [ 'page' ];
+				 chgListVars(params,delparams);
 			  });
 
 
