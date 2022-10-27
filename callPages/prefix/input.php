@@ -42,7 +42,7 @@
 			$(".layer_box_wrap input[type='checkbox']").attr('disabled',false);
 		}
 
-		//PHONE 검색시 숫자만 입력 가능
+		//Port 숫자만 입력 가능
 		$(".numOnly").keyup(function (event) {
 			regexp = /[^0-9\-\*]/gi;
 			var key = event.which;
@@ -67,7 +67,7 @@
 				if ( $.trim($("#ipaddr").val()) !="") {
 					if (!RegexIp.test($.trim($("#ipaddr").val())) ) {
 						alert("<?=$titPhone['errIp']?>");
-						$("#ipaddr").focus();
+				dublePrefix		$("#ipaddr").focus();
 						return false;
 					}
 				}
