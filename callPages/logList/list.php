@@ -100,10 +100,11 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 			  });
 
 			  $("#BtnReset").click(function(e){
-				 var params = [ 'find','logtype','logsub','page_num'];
+				 var params = [ 'find','word','logtype','logsub','page_num'];
 
 				 $("#st_day").val('<?=$today?>')
 				 $("#end_day").val('<?=$today?>')
+				 $("#word").val('')
  
 				 for(var i=0; i<params.length;i++) {
 				 	$("#"+params[i]).val('')
