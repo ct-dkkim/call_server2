@@ -76,7 +76,7 @@ function myInfoComplete(index)		{
 <div id="wrap">
 	<div id="header">
 		<div class="w_custom">
-			<h1><a href="#"><img src="../../images/logo.png" alt="CALL BRIDGE SERVER"/></a></h1>
+			<h1><a href="../session/list.php"><img src="../../images/logo.png" alt="CALL BRIDGE SERVER"/></a></h1>
 			<ul id="gnb">
 				<li><a href='javascript:logout()'>Logout</a></li>
 				<? if ($_SESSION["user_level"] <="2") { ?>				
