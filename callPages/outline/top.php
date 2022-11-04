@@ -119,7 +119,7 @@ function myInfoComplete(index)		{
 					<div class="lnb_layer_wrap">
 					</div>
 				</li>
-				<li class="hd_lnb06 lnb_step01 <?=$memu6?>"><a href="#"><?=$tit['mainTitle']['history']?><span class="arrow"></span><span class="shadow"></span></a>
+				<li class="hd_lnb06 lnb_step01 <?=$memu6?>"><a href="../history/list.php"><?=$tit['mainTitle']['history']?><span class="arrow"></span><span class="shadow"></span></a>
 
 					<div class="lnb_layer_wrap">
 						<ul class="w_custom">
@@ -128,7 +128,7 @@ function myInfoComplete(index)		{
 						</ul>	
 					</div>
 				</li>
-				<li class="hd_lnb07 lnb_step01 last <?=$memu7?>"><a href="#"><?=$tit['mainTitle']['etc']?><span class="arrow"></span><span class="shadow"></span></a>
+				<li class="hd_lnb07 lnb_step01 last <?=$memu7?>"><a href="../func_code/write.php"><?=$tit['mainTitle']['etc']?><span class="arrow"></span><span class="shadow"></span></a>
 					<div class="lnb_layer_wrap">
 						<ul class="w_custom">
 							<li class="first"><a href="../func_code/write.php" class="<?=$subMenu3_1?>"><?=$tit['mainTitle']['etc_func']?></a></li>
