@@ -56,7 +56,7 @@ $aCType=array("TRK" =>"TRK","INC"=>"INC","STN" =>"STN");
 $aCStatus=array("Answering" =>"Answering","Calling"=>"Calling","Trying" =>"Trying","Connect"=>"Connect");
 
 
-$titSession['listTitle']= array("callCnt"=>"동시콜수","callNumber"=>"발신전화번호", "sDate"=>"시화일자","sTime"=>"시화시간","sDateTime"=>"시화일지","eDateTime"=>"종료일시","reNumber"=>"상대방번화번호", "sendIP"=>"발신IP", "reIP"=>"상대방IP","callType"=>"호종류", "callStauts"=>"호상태", "avType"=>"영상/음성");
+$titSession['listTitle']= array("callCnt"=>"동시콜수","callNumber"=>"발신전화번호", "sDate"=>"시화일자","sTime"=>"시화시간","sDateTime"=>"시화일지","eDateTime"=>"종료일시","duration"=>"발언시간","reNumber"=>"상대방번화번호", "sendIP"=>"발신IP", "reIP"=>"상대방IP","callType"=>"호종류", "callStauts"=>"호상태", "avType"=>"영상/음성");
 
 $titSession['noMsg'] ="현재 통화량이 없습니다.";
 

@@ -81,8 +81,13 @@ class statistic Extends Page {
 			$st_date =  date($dateType, strtotime($data["CALLDATE"]." ".$data['CALLTIME']));
 			if (strtotime($data["ENDDATE"]) > 0) {
 				$end_date =  date($dateType, strtotime($data["ENDDATE"]." ".$data['ENDTIME']));
+				$originalTime = new DateTimeImmutable($st_date);
+				$targedTime = new DateTimeImmutable($end_date);
+				$interval = $originalTime->diff($targedTime);
+				$duration=$interval->format("%H:%I:%S");
 			}  else {
 				$end_date="";
+				$duration="";
 			}			
 
 			echo"<tr>
@@ -90,6 +95,7 @@ class statistic Extends Page {
 					<td class='ta_left pl_30'>$data[TELNO]</td>
 					<td>$st_date</td>
 					<td>$end_date</td>
+					<td>$duration</td>
 					<td class='ta_left pl_30'>$data[CALLED]</td>
 					<td>$data[RECVIP]</td>
 					<td>$data[SENDIP]</td>

@@ -239,12 +239,13 @@ $html_type=selectbox("ftype",$aCType,$ftype,$titSession['listTitle']['callType']
 			<col width='12%'>
 			<col width='11%'>
 			<col width='11%'>
+			<col width='6%'>
 			<col width='12%'>
 			<col width='10%'>
 			<col width='10%'>
-			<col width='8%'>
-			<col width='11%'>
-			<col width='8%'>
+			<col width='5%'>
+			<col width='10%'>
+			<col width='6%'>
 		</colgroup>
 		<thead>
 			<tr>
@@ -252,6 +253,7 @@ $html_type=selectbox("ftype",$aCType,$ftype,$titSession['listTitle']['callType']
 				<th><?=$titSession['listTitle']['callNumber']?></th>
 				<th><?=$titSession['listTitle']['sDateTime']?></th>
 				<th><?=$titSession['listTitle']['eDateTime']?></th>
+				<th><?=$titSession['listTitle']['duration']?></th>
 				<th><?=$titSession['listTitle']['reNumber']?></th>
 				<th><?=$titSession['listTitle']['sendIP']?></th>
 				<th><?=$titSession['listTitle']['reIP']?></th>
