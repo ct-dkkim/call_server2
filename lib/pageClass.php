@@ -109,7 +109,7 @@ class Page{
 
 		if($this->page["total"]>$page["move"]){
 			$page["next"] = $page["move"]+1;
-			$navi .= "	<a href='javascript://' onclick=\"javascript:listRefresh('".$this->vars['page']."&page=$page[next]{$this->flag}','{$this->listAjax}');allchkNull()\" class='btn next'>{$this->page[next]}</a> ";
+			$navi .= "	<a href='javascript://' onclick=\"javascript:listRefresh('{$this->vars['page']}&page={$page['next']}{$this->flag}','{$this->listAjax}');allchkNull()\" class='btn next'>{$this->page['next']}</a> ";
 		} else {
 			$navi .= " <a  class='btn next'>{$this->page['next']}</a> ";
 
