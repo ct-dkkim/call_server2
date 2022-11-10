@@ -81,10 +81,10 @@ class statistic Extends Page {
 			$st_date =  date($dateType, strtotime($data["CALLDATE"]." ".$data['CALLTIME']));
 			if (strtotime($data["ENDDATE"]) > 0) {
 				$end_date =  date($dateType, strtotime($data["ENDDATE"]." ".$data['ENDTIME']));
-				$originalTime = new DateTimeImmutable($st_date);
-				$targedTime = new DateTimeImmutable($end_date);
-				$interval = $originalTime->diff($targedTime);
-				$duration=$interval->format("%H:%I:%S");
+
+				$diff = strtotime($data["ENDDATE"]." ".$data['ENDTIME']) - strtotime($data["CALLDATE"]." ".$data['CALLTIME']);				
+				$duration = get_time($diff);
+				
 			}  else {
 				$end_date="";
 				$duration="";
