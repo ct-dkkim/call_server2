@@ -45,12 +45,20 @@ class Page{
 		if (!$this->cntQuery){
 			//$cnt = (!preg_match("/distinct/i",$this->field)) ? "count(*)" : "count($this->field)";
 
-			if(!preg_match("/distinct/i",$this->field)) $cnt = "count(*)";
-			else {
+			//group by 일때 sun, count 포함시에 는 count 다르게 적용
+			if(preg_match("/sum/i",$this->field) || preg_match("/count/i",$this->field)){
 				$temp = explode( ",", $this->field );
 				$cnt = "count($temp[0])";
+				$this->cntQuery = "SELECT count(grpCnt) FROM (select $cnt as grpCnt from $this->db_table $this->where $this->tmpQry ) A";
 			}
-			$this->cntQuery = "select $cnt from $this->db_table $this->where $this->tmpQry";
+			else {
+				if(!preg_match("/distinct/i",$this->field)) $cnt = "count(*)";
+				else {
+					$temp = explode( ",", $this->field );
+					$cnt = "count($temp[0])";
+				}
+				$this->cntQuery = "select $cnt from $this->db_table $this->where $this->tmpQry";
+			}
 
 		}
 		//list($this->recode[total]) = $GLOBALS[db]->fetch($this->cntQuery);

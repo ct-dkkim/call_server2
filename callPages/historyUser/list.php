@@ -64,8 +64,6 @@ $aFind =array("TELNO" => $titSession['listTitle']['callNumber'], "CALLED"=>$titS
 
 $html_page=selectbox("page_num",$aPageNum,$page_num,"","findSelect('')","70");
 $html_Find=selectbox("find",$aFind,$find,$msg['allchk'],"","130");
-$html_type=selectbox("ftype",$aCType,$ftype,$titSession['listTitle']['callType'],"findSelect('ftype')","80");
-//$html_status=selectbox("fstatus",$aCStatus,$fstatus,$titSession['listTitle']['callStauts'],"findSelect('fstatus')","100");
 
 ?>
 <!DOCTYPE html>
@@ -98,7 +96,7 @@ $html_type=selectbox("ftype",$aCType,$ftype,$titSession['listTitle']['callType']
 			  });
 			  //##### 검색
 			  $("#BtnSearch").click(function(e){
-				 var params = [ 'st_day', 'st_time','end_day','end_time','find','ftype','word','page_num'];
+				 var params = [ 'st_day', 'st_time','end_day','end_time','find','word','page_num'];
  		    	 var delparams = [ 'page' ];
 				  if ($('#st_day').val()==""){
 					 alert("<?=$msgStat['errDate']?>")
@@ -132,7 +130,7 @@ $html_type=selectbox("ftype",$aCType,$ftype,$titSession['listTitle']['callType']
 			  });
 
 			  $("#BtnReset").click(function(e){
-				 var params = [ 'st_day', 'st_time','end_day','end_time','find','ftype','word','page_num'];
+				 var params = [ 'st_day', 'st_time','end_day','end_time','find','word','page_num'];
 
  
 				 for(var i=4; i<params.length;i++) {
@@ -218,7 +216,7 @@ $html_type=selectbox("ftype",$aCType,$ftype,$titSession['listTitle']['callType']
 						<?=$html_Find?>
 						<input type="text" name="word" id='word' maxlength='16' value="<?=$word?>" class="sch_txt" title="" placeholder="" style="width:120px">
 						<button id="BtnSearch" onclick='return false' class="btn_nor btn_blue Rmargin"><?=$tit['btn']['search']?></button>
-						<?=$html_type?>
+						
 						<?=$html_page?>
 					</div>
 

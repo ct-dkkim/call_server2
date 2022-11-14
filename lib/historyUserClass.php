@@ -48,7 +48,7 @@ class statistic Extends Page {
 		$this->temp="GROUP BY TELNO ";
 		
 		$this->set_where(); 
-		$this->setQuery($this->table,$this->where,"TELNO",$this->temp,20);//this->query 생성
+		$this->setQuery($this->table,$this->where,"TELNO",$this->temp);//this->query 생성
 		$this->exec();
 
 	}
@@ -74,13 +74,6 @@ class statistic Extends Page {
 		}
 
 
-
-		if ($ftype !="") {
-			$this->where[] =" CALLTYPE ='$ftype'";
-		}
-
-
-
  	    if (isset($_GET['word'])==true && $_GET['word']!="") {
 
 		  if ($find) {
@@ -88,7 +81,6 @@ class statistic Extends Page {
 		  } else {
 			  //검색조건이 전체일때 통합검색
 			  $wh[] ="TELNO like '%$word%'";
-			  $wh[] ="CALLED  like '%$word%'";
 
 			  $whr=implode(" or ", $wh);
               $this->where[] ="($whr)";			
@@ -112,17 +104,22 @@ class statistic Extends Page {
 			//$num--;
 			$num++;
 
+			$trkDurationTime = get_time($data['trkDuration']);
+			$incDurationTime = get_time($data['incDuration']);
+			$stnDurationTime = get_time($data['stnDuration']);
+			$totalDurationTime = get_time($data['totalDuration']);
+
 			echo"<tr>
 					<td >$num</td>
 					<td class='ta_left pl_30'>$data[TELNO]</td>
 					<td>$data[trkCnt]</td>
-					<td>$data[trkDuration]</td>					
+					<td>$trkDurationTime</td>					
 					<td>$data[incCnt]</td>
-					<td>$data[incDuration]</td>	
+					<td>$incDurationTime</td>
 					<td>$data[stnCnt]</td>
-					<td>$data[stnDuration]</td>	
+					<td>$stnDurationTime</td>
 					<td>$data[totalCnt]</td>
-					<td>$data[totalDuration]</td>	
+					<td>$stnDurationTime</td>
 				</tr>";
 		}
 	}
