@@ -21,7 +21,7 @@ if (!$_SESSION['downResult']){
 
 
 $objReader = PHPExcel_IOFactory::createReader('Excel5');
-$objPHPExcel = $objReader->load("../outline/temp_history.xls");
+$objPHPExcel = $objReader->load("../outline/temp_historyuser.xls");
 
 // Set document properties
 $objPHPExcel->getProperties()->setCreator("Maarten Balliauw")
@@ -35,7 +35,7 @@ $objPHPExcel->getProperties()->setCreator("Maarten Balliauw")
 
 
 $table = "CALL_HISTORY";
-$order ="CALLDATE, CALLTIME DESC";
+$order =" TELNO ";
 		$st_date=$st_day.$st_time;
 		$end_date=$end_day.$end_time;
 
@@ -65,8 +65,6 @@ $order ="CALLDATE, CALLTIME DESC";
 		  } else {
 			  //검색조건이 전체일때 통합검색
 			  $wh[] ="TELNO like '%$word%'";
-			  $wh[] ="CALLED  like '%$word%'";
-
 			  $w=implode(" or ", $wh);
               $where[] ="($w)";			
 		  }
@@ -79,7 +77,38 @@ if (!$where) {
 }
 
 
-$sql="select * from $table where $whr order by $order "  ;
+$sql="TELNO,
+COUNT(TELNO) as totalCnt,
+COALESCE(
+	SUM(
+		TIME_TO_SEC(TIMEDIFF(CONCAT(ENDDATE,' ',ENDTIME),CONCAT(CALLDATE,' ',CALLTIME)))
+	)
+,0)	AS totalDuration,
+count(case when CALLTYPE ='TRK' then TELNO end) as trkCnt,	
+COALESCE(
+	SUM(
+		case when CALLTYPE ='TRK' then 
+		TIME_TO_SEC(TIMEDIFF(CONCAT(ENDDATE,' ',ENDTIME),CONCAT(CALLDATE,' ',CALLTIME)))
+		end
+	)	
+,0)	AS trkDuration,
+count(case when CALLTYPE ='INC' then TELNO end) as incCnt,	
+COALESCE(
+	SUM(
+		case when CALLTYPE ='INC' then 
+		TIME_TO_SEC(TIMEDIFF(CONCAT(ENDDATE,' ',ENDTIME),CONCAT(CALLDATE,' ',CALLTIME)))
+		end
+	)	
+,0)	AS incDuration,
+count(case when CALLTYPE ='STN' then TELNO end) as stnCnt,	
+COALESCE(
+	SUM(
+		case when CALLTYPE ='STN' then 
+		TIME_TO_SEC(TIMEDIFF(CONCAT(ENDDATE,' ',ENDTIME),CONCAT(CALLDATE,' ',CALLTIME)))
+		end
+	)	
+,0)	AS stnDuration 
+from $table where $whr GROUP BY TELNO  order by $order "  ;
 $result=mysqli_query($db,$sql);
 $line=2;
 
@@ -96,14 +125,14 @@ while ($row = mysqli_fetch_array($result)){
 
 		$objPHPExcel->setActiveSheetIndex(0)
 					->setCellValue('A'.$line, " ".$row['TELNO'])
-					->setCellValue('B'.$line, " ".$st_date)
-					->setCellValue('C'.$line, " ".$end_date)
-					->setCellValue('D'.$line, " ".$row['CALLED'])
-					->setCellValue('E'.$line, " ".$row['RECVIP'])
-					->setCellValue('F'.$line, " ".$row['SENDIP'])
-					->setCellValue('G'.$line, $row['CALLTYPE'])
-					->setCellValue('H'.$line, $row['CALLSTAT'])
-					->setCellValue('I'.$line, $row['AVTYPE']);
+					->setCellValue('B'.$line, $row['trkCnt'])
+					->setCellValue('C'.$line, get_time($row['trkDuration']))
+					->setCellValue('D'.$line, $row['incCnt'])
+					->setCellValue('E'.$line, $row['incDuration'])
+					->setCellValue('F'.$line, $row['stnCnt'])
+					->setCellValue('G'.$line, $row['stnDuration'])
+					->setCellValue('H'.$line, $row['totalCnt'])
+					->setCellValue('I'.$line, $row['totalDuration']);
 			$line++;
 		};
 

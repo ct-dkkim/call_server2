@@ -39,7 +39,7 @@ $msg['doselect'] ="선택하세요";
 
 
 ################### 메뉴 #################################
-$tit['mainTitle']=array("session"=>"통화리스트", "phone"=>"전화번호관리","routing"=>"발신경로관리", "rout_prefix"=>"PREFIX별 발신경로관리","rout_ip"=>"IP별 발신경로관리", "rout_group"=>"라우팅그룹별 발신경로관리" ,"digit"=>"디지트변환관리","digit_group"=>"라우팅그룹별 변환관리", "pri"=>"PRI 국선관리", "class"=>"등급코드관리","etc"=>"부가서비스","etc_func"=>"기능코드 설정","etc_cpgroup"=>"당겨받기그룹","etc_trunk"=>"국선번호관리","etc_groupRring"=>"그룹링","etc_hunt"=>"헌트그룹관리" ,"history"=>"History","loginSetup"=>"관리자 관리 ","myInfo"=>"내정보 수정", "history_call"=>"통화내역 리스트", "history_oper"=>"운영조작내역");
+$tit['mainTitle']=array("session"=>"통화리스트", "phone"=>"전화번호관리","routing"=>"발신경로관리", "rout_prefix"=>"PREFIX별 발신경로관리","rout_ip"=>"IP별 발신경로관리", "rout_group"=>"라우팅그룹별 발신경로관리" ,"digit"=>"디지트변환관리","digit_group"=>"라우팅그룹별 변환관리", "pri"=>"PRI 국선관리", "class"=>"등급코드관리","etc"=>"부가서비스","etc_func"=>"기능코드 설정","etc_cpgroup"=>"당겨받기그룹","etc_trunk"=>"국선번호관리","etc_groupRring"=>"그룹링","etc_hunt"=>"헌트그룹관리" ,"history"=>"History","loginSetup"=>"관리자 관리 ","myInfo"=>"내정보 수정", "history_call"=>"통화내역 리스트", "history_user"=>"발신번호 기준 통계", "history_oper"=>"운영조작내역");
 
 
 $tit['btn'] = array("import" => "업로드", "export" => "다운로드","save" => "저장", "modify" => "수정", "cancle" => "취소", "add" => "추가", "del" => "삭제","search" => "검색","reset" => "초기화", "close" => "닫기") ; 

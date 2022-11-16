@@ -124,6 +124,7 @@ function myInfoComplete(index)		{
 					<div class="lnb_layer_wrap">
 						<ul class="w_custom">
 							<li class="first"><a href="../history/list.php" class="<?=$subMenu4_1?>"><?=$tit['mainTitle']['history_call']?></a></li>
+							<li><a href="../historyUser/list.php" class="<?=$subMenu4_3?>"><?=$tit['mainTitle']['history_user']?></a></li>
 							<li class="last"><a href="../logList/list.php" class="<?=$subMenu4_2?>"><?=$tit['mainTitle']['history_oper']?></a></li>
 						</ul>	
 					</div>

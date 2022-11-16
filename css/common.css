@@ -555,7 +555,6 @@ table.bbs_table_list table tbody tr.ovr td.line{ border-left: 3px solid #ed3d3d;
 table.bbs_table_list th,
 table.bbs_table_list td {line-height:20px;text-align:center;vertical-align:middle;}
 table.bbs_table_list th {padding:12px 0 13px 0;color:#333;font-size:13px;font-family:'맑은 고딕';font-weight:bold; !important; border-bottom:2px #a0a0a0 solid;background:url(../images/bg_table_th_bar.gif) no-repeat 100% 50%;}
-table.bbs_table_list th:last-child {background:none;}
 table.bbs_table_list td {padding:7px 0 6px 0;font-weight:400;color:#666;font-size:13px;border-bottom:1px #ccc solid;}
 table.bbs_table_list tbody tr:nth-child(even) td {background:#f5f5f5;}
 table.bbs_table_list .check_box { vertical-align:top;height:20px;line-height:20px;margin:0;padding:0; border:;}
@@ -843,7 +842,7 @@ table.bbs_table_vertical2 td {}
 #header #lnb > ul.lnb_wrap > li.hd_lnb03 .lnb_layer_wrap ul.w_custom li.first {margin-left:298px;}
 #header #lnb > ul.lnb_wrap > li.hd_lnb04 .lnb_layer_wrap ul.w_custom li.first {margin-left:432px;}
 #header #lnb > ul.lnb_wrap > li.hd_lnb05 .lnb_layer_wrap ul.w_custom li.first {margin-left:616px;}
-#header #lnb > ul.lnb_wrap > li.hd_lnb06 .lnb_layer_wrap ul.w_custom li.first {margin-left:890px;}
+#header #lnb > ul.lnb_wrap > li.hd_lnb06 .lnb_layer_wrap ul.w_custom li.first {margin-left:820px;}
 #header #lnb > ul.lnb_wrap > li.hd_lnb07 .lnb_layer_wrap ul.w_custom {text-align:right;}
 #header #lnb > ul.lnb_wrap > li.hd_lnb07 .lnb_layer_wrap ul.w_custom li.last {margin-right:-15px;}
 

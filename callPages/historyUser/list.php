@@ -4,7 +4,7 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 
  ##로그기록
     $memu6 ="nowOn";
-    $subMenu4_1 ="on";
+    $subMenu4_3 ="on";
 
     $bbs="CALL_HISTORY";
 
@@ -60,7 +60,7 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 
 
 	//$pageName = "logList";
-$aFind =array("TELNO" => $titSession['listTitle']['callNumber'], "CALLED"=>$titSession['listTitle']['reNumber']) ; 
+$aFind =array("TELNO" => $titSession['listTitle']['callNumber']) ; 
 
 $html_page=selectbox("page_num",$aPageNum,$page_num,"","findSelect('')","70");
 $html_Find=selectbox("find",$aFind,$find,$msg['allchk'],"","130");
@@ -73,6 +73,9 @@ $html_Find=selectbox("find",$aFind,$find,$msg['allchk'],"","130");
 	  <script type="text/javascript" src='../../js/calendar-eraser_lim.js'></script>
 	  <link rel='stylesheet' href='../../js/calendar-eraser_lim.css' type='text/css'>
 	  <script type="text/javascript" src="../../js/jquery.timeentry.js"></script>
+	  <style>      
+		table.bbs_table_list th {border-bottom:1px solid #d3d3d3; background-color:#f5f5f5; font-weight:600; padding:5px 2px ; color:#333; line-height:17px;vertical-align: middle;}
+	  </style>
 
 	  <script type="text/javascript">
 			var ajaxObjects = new Array();
@@ -200,7 +203,7 @@ $html_Find=selectbox("find",$aFind,$find,$msg['allchk'],"","130");
 <div id="container" class="w_custom">
 	<!-- 기본형 시작 -->
 	<div class="sub_head1 clear ">
-		<h2 class="sub_head_title fl"><?=$tit['mainTitle']['history_call']?></h2>
+		<h2 class="sub_head_title fl"><?=$tit['mainTitle']['history_user']?></h2>
 	</div>
 	<div class="sub_head2 clear ">
 		<div class="fl" id="divPageNum"></div>

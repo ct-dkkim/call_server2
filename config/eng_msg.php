@@ -37,7 +37,7 @@ $msg['doselect'] ="Please select";
 
 ################### 메뉴 #################################
 $tit['mainTitle']=array("session"=>"Session", "phone"=>"Phone Manage","routing"=>"Routing Manage", "rout_prefix"=>"Routing Manage by prefix","rout_ip"=>"Routing Manage by IP", "rout_group"=>"Routing Manage by group" ,"digit"=>"Called No Conversion","digit_group"=>"Conversion digit by routing group",
-	"pri"=>"PRI Trunk G/W", "class"=>"Class Control","etc"=>"Addition Service", "etc_func"=>"Function Code","etc_cpgroup"=>"Call pickup Group","etc_trunk"=>"Trunk Management","etc_groupRring"=>"Ring Group","etc_hunt"=>"Hunt Group Management","history"=>"History","loginSetup"=>"Administrator " ,"myInfo"=>"My Info", "history_call"=>"Session History", "history_oper"=>"Operation Info");
+	"pri"=>"PRI Trunk G/W", "class"=>"Class Control","etc"=>"Addition Service", "etc_func"=>"Function Code","etc_cpgroup"=>"Call pickup Group","etc_trunk"=>"Trunk Management","etc_groupRring"=>"Ring Group","etc_hunt"=>"Hunt Group Management","history"=>"History","loginSetup"=>"Administrator " ,"myInfo"=>"My Info", "history_call"=>"Session History", "history_user"=>"History by Callnumber", "history_oper"=>"Operation Info");
 
 $tit['btn'] = array("import" => "Import", "export" => "Export","save" => "Save","modify" => "Modify", "cancle" => "Cancel", "add" => "Add", "del" => "Delete","search" => "Search","reset" => "Reset", "close" => "Close") ; 
  
