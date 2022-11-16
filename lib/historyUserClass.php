@@ -98,6 +98,16 @@ class statistic Extends Page {
 
 		//$num = $this->recode['total'] - ($this->page['now']-1) * $this->page['num'] + 1;
 		$num = ($this->page['now']-1)*$this->page['num'];
+
+
+		$totCnt=0;
+		$totCnt1=0;
+		$totCnt4=0;
+		$totCnt8=0;
+		$totTime=0;
+		$totTime1=0;
+		$totTime4=0;
+		$totTime8=0;
 		
 		//echo "<tr><td colspan=10>".$this->query."</td></tr>";
 		while ($data = mysqli_fetch_array($res)){
@@ -121,7 +131,34 @@ class statistic Extends Page {
 					<td>$data[totalCnt]</td>
 					<td>$stnDurationTime</td>
 				</tr>";
+
+				$totCnt += $data['totalCnt'];
+				$totCnt1 += $data['trkCnt'];
+				$totCnt4 += $data['incCnt'];
+				$totCnt8 += $data['stnCnt'];
+				$totTime += $data['totalDuration'];
+				$totTime1 += $data['trkDuration'];
+				$totTime4 += $data['incDuration'];
+				$totTime8 += $data['stnDuration'];
 		}
+
+		$totTime1HMS = get_time($totTime1);
+		$totTime4HMS = get_time($totTime4);
+		$totTime8HMS = get_time($totTime8);
+		$totTimeHMS = get_time($totTime);
+
+		echo"<tr>
+					<td colspan=2 >total</td>
+					<td>$totCnt1</td>
+					<td>$totTime1HMS</td>					
+					<td>$totCnt4</td>
+					<td>$totTime4HMS</td>
+					<td>$totCnt8</td>
+					<td>$totTime8HMS</td>
+					<td>$totCnt</td>
+					<td>$totTimeHMS</td>
+		</tr>";
+
 	}
 
 

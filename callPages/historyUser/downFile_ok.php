@@ -112,9 +112,6 @@ from $table where $whr GROUP BY TELNO  order by $order "  ;
 $result=mysqli_query($db,$sql);
 $line=2;
 
-$objPHPExcel->setActiveSheetIndex(0)
-->setCellValue('J1', $sql);
-
 
 while ($row = mysqli_fetch_array($result)){
 		$st_date =  date($dateType, strtotime($row["CALLDATE"]." ".$row['CALLTIME']));
@@ -146,7 +143,7 @@ regLog($admin_info['user_id'], '11','down',$tit['mainTitle']['history_user'], ($
 // Rename worksheet
 $objPHPExcel->getActiveSheet()->setTitle( );
 
-$fileName='Session('.$st_day.'-'.$end_day.')';
+$fileName='Callnum('.$st_day.'-'.$end_day.')';
 
 // Set active sheet index to the first sheet, so Excel opens this as the first sheet
 $objPHPExcel->setActiveSheetIndex(0);
