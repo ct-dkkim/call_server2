@@ -77,7 +77,7 @@ if (!$where) {
 }
 
 
-$sql="TELNO,
+$sql="select TELNO,
 COUNT(TELNO) as totalCnt,
 COALESCE(
 	SUM(
@@ -112,7 +112,8 @@ from $table where $whr GROUP BY TELNO  order by $order "  ;
 $result=mysqli_query($db,$sql);
 $line=2;
 
-
+$objPHPExcel->setActiveSheetIndex(0)
+->setCellValue('J1', $sql);
 
 
 while ($row = mysqli_fetch_array($result)){
@@ -128,11 +129,11 @@ while ($row = mysqli_fetch_array($result)){
 					->setCellValue('B'.$line, $row['trkCnt'])
 					->setCellValue('C'.$line, get_time($row['trkDuration']))
 					->setCellValue('D'.$line, $row['incCnt'])
-					->setCellValue('E'.$line, $row['incDuration'])
+					->setCellValue('E'.$line, get_time($row['incDuration']))
 					->setCellValue('F'.$line, $row['stnCnt'])
-					->setCellValue('G'.$line, $row['stnDuration'])
+					->setCellValue('G'.$line, get_time($row['stnDuration']))
 					->setCellValue('H'.$line, $row['totalCnt'])
-					->setCellValue('I'.$line, $row['totalDuration']);
+					->setCellValue('I'.$line, get_time($row['totalDuration']));
 			$line++;
 		};
 
@@ -140,7 +141,7 @@ while ($row = mysqli_fetch_array($result)){
 $reg_date=date("Y-m-d H:i:s");
 
 
-regLog($admin_info['user_id'], '11','down',$tit['mainTitle']['history_call'], ($line-2)." ".$msg['unit'] ,'ENG',$reg_date,'') ;
+regLog($admin_info['user_id'], '11','down',$tit['mainTitle']['history_user'], ($line-2)." ".$msg['unit'] ,'ENG',$reg_date,'') ;
 
 // Rename worksheet
 $objPHPExcel->getActiveSheet()->setTitle( );
