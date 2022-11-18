@@ -4,12 +4,12 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 
  ##로그기록
     $memu6 ="nowOn";
-    $subMenu4_3 ="on";
+    $subMenu4_4 ="on";
 
-    $bbs="HISTORY BY CALLNUMBER";
+    $bbs="HISTORY BY DATE";
 
 
-	$pageKey="history_by_callnum";
+	$pageKey="history_by_date";
 	if (strpos($_SESSION['viewLog'],$pageKey) ===false) {
 		regLog($admin_info['user_id'], '7','view','', '' ,'ENG',$reg_date,'') ;
 		if (!$_SESSION['viewLog']){
@@ -32,22 +32,29 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 			}
 		}
 	}
-
-   //변수처리
-   $arrVars=explode("&",$_SESSION['Vars']);
-   for ($i=0;$i<sizeof($arrVars);$i++) {
-		 $arr=explode("=",$arrVars[$i]);
-		 ${$arr[0]}=$arr[1];
-   }
+	
+	list($firstYear) = mysqli_fetch_array(mysqli_query($db,"select min(left(CALLDATE,4)) from call_history")) ; 
 
 
-	$today=date("Y-m-d");
-   if (!$st_day) {
-	  $st_day=$end_day=$today;
-	  $st_time="00:00:00";
-	  $end_time="23:59:59";
-	  $_SESSION['Vars'] = "st_day=$st_day&end_day=$end_day&st_time=$st_time&end_time=$end_time";
-   }
+	//변수처리
+	$arrVars=explode("&",$_SESSION['Vars']);
+	for ($i=0;$i<sizeof($arrVars);$i++) {
+			$arr=explode("=",$arrVars[$i]);
+			${$arr[0]}=$arr[1];
+	}
+
+
+	if (!$fyear) {
+	$search_type="day";
+	$fyear=date('Y');
+	$fmonth=date('m');
+
+	$_SESSION['Vars'] = "search_type=$search_type&fyear=$fyear&fmonth=$fmonth";
+	}
+
+	if ($search_type) {
+		$checked['search_type'][$search_type]="checked";
+	}
 
 
 
@@ -60,10 +67,7 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 
 
 	//$pageName = "logList";
-$aFind =array("TELNO" => $titSession['listTitle']['callNumber']) ; 
 
-$html_page=selectbox("page_num",$aPageNum,$page_num,"","findSelect('')","70");
-$html_Find=selectbox("find",$aFind,$find,$msg['allchk'],"","130");
 
 ?>
 <!DOCTYPE html>
@@ -75,6 +79,7 @@ $html_Find=selectbox("find",$aFind,$find,$msg['allchk'],"","130");
 	  <script type="text/javascript" src="../../js/jquery.timeentry.js"></script>
 	  <style>      
 		table.bbs_table_list th {border-bottom:1px solid #d3d3d3; background-color:#f5f5f5; font-weight:600; padding:5px 2px ; color:#333; line-height:17px;vertical-align: middle;}
+		.sub_head_search {float: left; margin-top: 16px; padding-left:7px;}
 	  </style>
 
 	  <script type="text/javascript">
@@ -92,25 +97,21 @@ $html_Find=selectbox("find",$aFind,$find,$msg['allchk'],"","130");
 					defaultTime: "<?=$st_time?>"
 			  });
 
-			  $('#end_time').timeEntry({
-					show24Hours: true,
-					showSeconds: true,
-					defaultTime: "<?=$end_time?>"
-			  });
+
 			  //##### 검색
 			  $("#BtnSearch").click(function(e){
-				 var params = [ 'st_day', 'st_time','end_day','end_time','find','word','page_num'];
+				 var search_type=$('input:radio[name="rsearch_type"]:checked').val()
+				 $('#search_type').val(search_type)
+				 var params = [ 'st_day', 'st_time','rsearch_type','fyear','fmonth','page_num'];
  		    	 var delparams = [ 'page' ];
 				  if ($('#st_day').val()==""){
 					 alert("<?=$msgStat['errDate']?>")
 					 $('#st_day').focus()
 					  return false
 				  }
-				  if ($('#end_day').val()==""){
-					 alert("<?=$msgStat['errDate']?>")
-					 $('#end_day').focus()
-					  return false
-				  }					 
+
+				  
+				  					 
 
 				 chgListVars(params,delparams);
 			  });
@@ -133,7 +134,7 @@ $html_Find=selectbox("find",$aFind,$find,$msg['allchk'],"","130");
 			  });
 
 			  $("#BtnReset").click(function(e){
-				 var params = [ 'st_day', 'st_time','end_day','end_time','find','word','page_num'];
+				 var params = [ 'st_day', 'st_time','end_day','end_time','find','fyear','page_num'];
 
  
 				 for(var i=4; i<params.length;i++) {
@@ -160,6 +161,8 @@ $html_Find=selectbox("find",$aFind,$find,$msg['allchk'],"","130");
 
 			  });
 
+			  searchtype_chk()
+
 			})
 
 			//#####검색 셀렉트 적용
@@ -170,12 +173,7 @@ $html_Find=selectbox("find",$aFind,$find,$msg['allchk'],"","130");
 					 alert("<?=$msgStat['errDate']?>")
 					 $('#st_day').focus()
 					  return false
-				  }
-				  if ($('#end_day').val()==""){
-					 alert("<?=$msgStat['errDate']?>")
-					 $('#end_day').focus()
-					  return false
-				  }			
+				  }		
 
 
 				 if (item){
@@ -186,6 +184,14 @@ $html_Find=selectbox("find",$aFind,$find,$msg['allchk'],"","130");
 				 chgListVars(params,delparams);
 			}
 
+			function searchtype_chk() {
+			  if (document.fmList.rsearch_type[1].checked==true) {
+					$('#DivMonthSelect').hide()
+			  } else {
+					$('#DivMonthSelect').show()
+			  }
+	
+			}
 
 
 
@@ -203,30 +209,63 @@ $html_Find=selectbox("find",$aFind,$find,$msg['allchk'],"","130");
 <div id="container" class="w_custom">
 	<!-- 기본형 시작 -->
 	<div class="sub_head1 clear ">
-		<h2 class="sub_head_title fl"><?=$tit['mainTitle']['history_user']?></h2>
+		<h2 class="sub_head_title fl"><?=$tit['mainTitle']['history_date']?></h2>
 	</div>
+	<form name="fmList" id='fmList' method="post" >
 	<div class="sub_head2 clear ">
-		<div class="fl" id="divPageNum"></div>
 		<div class="sub_head_search fr ta_right">
 				<fieldset>
-					<legend>검색폼</legend>
-					<div class="clear">
-						<button id="BtnReset" class="btn_nor btn_grey fl"><?=$tit['btn']['reset']?></button>
+					<legend>검색폼</legend>					
+					<div class="option">
+						<strong><!--통계기준--><?=$titSession['listTitle']['dateFomat']?></strong>
+						<input type="radio" name="rsearch_type" id='day' value="day"    <?=$checked['search_type']['day']?> onclick='searchtype_chk()'>
+						<label for="PTTGroup" class="mr5"><!--일별--><?=strtoupper($schTime['day'])?></label>
 
-						<input type="text" name="st_day"  id="st_day" maxlength="10" value="<?=$st_day?>" onfocus='showCalendarControl(this)' class="sch_txt" style="width:90px"> <input type="text" name="st_time"  id="st_time" maxlength="8" value="<?=$st_time?>"  class="sch_txt" style="width:70px"><span>~</span>
-						<input type="text"  name="end_day"  id="end_day" maxlength="10" value="<?=$end_day?>" onfocus='showCalendarControl(this)' class="sch_txt fl5" style="width:90px"> <input type="text" name="end_time"  id="end_time" maxlength="8" value="<?=$end_time?>"  class="sch_txt" style="width:70px;margin-right:20px">
+						<input type="radio" name="rsearch_type" id="month" value="month"  <?=$checked['search_type']['month']?> onclick='searchtype_chk()'>
+						<label for="PTTGroup2" class="mr5"><!--월별--><?=strtoupper($schTime['month'])?></label>
 
-						<?=$html_Find?>
-						<input type="text" name="word" id='word' maxlength='16' value="<?=$word?>" class="sch_txt" title="" placeholder="" style="width:120px">
+
+					</div>
+					<div class="option">
+					  <select name=fyear id="fyear" class="selectClass w80">
+						 <? for ($i=$firstYear;$i<=date('Y');$i++){
+							   if ($fyear == $i ) {
+								 echo "<option value='$i' selected >$i ".$titHistory['dateUnit']['year']."</option>" ;
+							   } else {
+								  echo "<option value='$i' >$i ".$titHistory['dateUnit']['year']."</option>" ;
+							   }
+							}
+						?>
+					  </select>&nbsp;&nbsp;	
+					  
+					  <span id='DivMonthSelect'>
+					  <select name=fmonth id="fmonth" class="selectClass w70">
+
+						<? for ($i=1;$i<=12;$i++) {
+							if ($i < 10) {
+								$mon= "0".$i ;
+							} else {
+								$mon= $i ;
+							}
+
+							if ($fmonth==$mon) {
+								 echo "<option value='$mon' selected >$mon ".$titHistory['dateUnit']['month']."</option>" ;
+							 } else {
+								  echo "<option value='$mon' >$mon ".$titHistory['dateUnit']['month']."</option>" ;
+							 }
+						}
+						?>
+						</select>
+						</span>
+						&nbsp;
+						<!--## 검색항목-->
 						<button id="BtnSearch" onclick='return false' class="btn_nor btn_blue Rmargin"><?=$tit['btn']['search']?></button>
-						
-						<?=$html_page?>
 					</div>
 
 				</fieldset>
 		</div>
 	</div>	
-	<form name="fmList" id='fmList' method="post" >
+	
 	<input type=hidden name="vars" id='vars' value="<?=$_SESSION['Vars']?>" size="80">     <!--ajax 리스트 변수-->
 	<input type=hidden name="page" id='page' value="<?=$page?>">
 	<input type=hidden name="allchk" id='allchk' value='<?=$allchk?>' >
@@ -249,7 +288,7 @@ $html_Find=selectbox("find",$aFind,$find,$msg['allchk'],"","130");
 		</colgroup>
 		<thead>
 			<tr>
-				<th class='head_title' rowspan=2>No</th>
+				<th rowspan=2>No</th>
 				<th rowspan=2><?=$titSession['listTitle']['callNumber']?></th>
 				<th colspan=2><?=$titSession['listTitle']['trk']?></th>
 				<th colspan=2><?=$titSession['listTitle']['inc']?></th>

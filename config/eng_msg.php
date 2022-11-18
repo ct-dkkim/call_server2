@@ -37,7 +37,7 @@ $msg['doselect'] ="Please select";
 
 ################### 메뉴 #################################
 $tit['mainTitle']=array("session"=>"Session", "phone"=>"Phone Manage","routing"=>"Routing Manage", "rout_prefix"=>"Routing Manage by prefix","rout_ip"=>"Routing Manage by IP", "rout_group"=>"Routing Manage by group" ,"digit"=>"Called No Conversion","digit_group"=>"Conversion digit by routing group",
-	"pri"=>"PRI Trunk G/W", "class"=>"Class Control","etc"=>"Addition Service", "etc_func"=>"Function Code","etc_cpgroup"=>"Call pickup Group","etc_trunk"=>"Trunk Management","etc_groupRring"=>"Ring Group","etc_hunt"=>"Hunt Group Management","history"=>"History","loginSetup"=>"Administrator " ,"myInfo"=>"My Info", "history_call"=>"Session History", "history_user"=>"History by Callnumber", "history_oper"=>"Operation Info");
+	"pri"=>"PRI Trunk G/W", "class"=>"Class Control","etc"=>"Addition Service", "etc_func"=>"Function Code","etc_cpgroup"=>"Call pickup Group","etc_trunk"=>"Trunk Management","etc_groupRring"=>"Ring Group","etc_hunt"=>"Hunt Group Management","history"=>"History","loginSetup"=>"Administrator " ,"myInfo"=>"My Info", "history_call"=>"Session History", "history_user"=>"History by Callnumber", "history_date"=>"History by Date", "history_oper"=>"Operation Info");
 
 $tit['btn'] = array("import" => "Import", "export" => "Export","save" => "Save","modify" => "Modify", "cancle" => "Cancel", "add" => "Add", "del" => "Delete","search" => "Search","reset" => "Reset", "close" => "Close") ; 
  
@@ -51,8 +51,11 @@ $aCType=array("TRK" =>"TRK","INC"=>"INC","STN" =>"STN");
 $aCStatus=array("Answering" =>"Answering","Calling"=>"Calling","Trying" =>"Trying","Connect"=>"Connect");
 
 
-$titSession['listTitle']= array("callCnt"=>"Concurrent","callNumber"=>"Calling Number", "sDate"=>"Start Date","sTime"=>"Start Time","sDateTime"=>"Start Date/Time","eDateTime"=>"End Date/Time", "duration"=>"Duration", "reNumber"=>"Called Number", "sendIP"=>"Calling IP", "reIP"=>"Called IP","callType"=>"Call Type", "callStauts"=>"Call Status", "avType"=>"A/V", "trk"=>"TRK", "inc"=>"INC", "stn"=>"STN", "callCount"=>"Call Count", "total"=>"Total");
+$titSession['listTitle']= array("callCnt"=>"Concurrent","callNumber"=>"Calling Number", "sDate"=>"Start Date","sTime"=>"Start Time","sDateTime"=>"Start Date/Time","eDateTime"=>"End Date/Time", "duration"=>"Duration", "reNumber"=>"Called Number", "sendIP"=>"Calling IP", "reIP"=>"Called IP","callType"=>"Call Type", "callStauts"=>"Call Status", "avType"=>"A/V", "trk"=>"TRK", "inc"=>"INC", "stn"=>"STN", "callCount"=>"Call Count", "total"=>"Total", "dateFomat"=>"Date Fomat");
 $titSession['noMsg'] ="There is not current calls."; 
+
+### 검색단위 
+$schTime=array("day" =>"day","month"=>"month");
 
 
 ### 적용파일: 다운로드 (/history/downFile.php) 

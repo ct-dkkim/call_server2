@@ -388,6 +388,10 @@ input[type="checkbox"]{ margin: 0; padding: 0;  width: 16px; height: 16px;  }
 
 .sub_head_search span {display:inline-block;_display:inline;font-size:12px,font-weight:bold;margin-left:5px;}
 
+.option{ float: left; margin-right:18px; margin-left:10px;}
+
+
+
 
 /*** 게시판 검색폼 ***/
 
@@ -842,7 +846,7 @@ table.bbs_table_vertical2 td {}
 #header #lnb > ul.lnb_wrap > li.hd_lnb03 .lnb_layer_wrap ul.w_custom li.first {margin-left:298px;}
 #header #lnb > ul.lnb_wrap > li.hd_lnb04 .lnb_layer_wrap ul.w_custom li.first {margin-left:432px;}
 #header #lnb > ul.lnb_wrap > li.hd_lnb05 .lnb_layer_wrap ul.w_custom li.first {margin-left:616px;}
-#header #lnb > ul.lnb_wrap > li.hd_lnb06 .lnb_layer_wrap ul.w_custom li.first {margin-left:820px;}
+#header #lnb > ul.lnb_wrap > li.hd_lnb06 .lnb_layer_wrap ul.w_custom li.first {margin-left:737px;}
 #header #lnb > ul.lnb_wrap > li.hd_lnb07 .lnb_layer_wrap ul.w_custom {text-align:right;}
 #header #lnb > ul.lnb_wrap > li.hd_lnb07 .lnb_layer_wrap ul.w_custom li.last {margin-right:-15px;}
 

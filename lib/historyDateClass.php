@@ -14,7 +14,7 @@ class statistic Extends Page {
 		$this->db=$db;
         $this->table = "CALL_HISTORY";
 
-		$this->field=" TELNO,
+		$this->field=" CALLDATE, 
 		COUNT(TELNO) as totalCnt,
 		COALESCE(
 			SUM(
@@ -45,11 +45,12 @@ class statistic Extends Page {
 				end
 			)	
 		,0)	AS stnDuration";
-		$this->temp="GROUP BY TELNO ";
+		$this->temp="GROUP BY CALLDATE ";
 		
 		$this->set_where(); 
-		$this->setQuery($this->table,$this->where,"TELNO",$this->temp);//this->query 생성
+		$this->setQuery($this->table,$this->where,"CALLDATE",$this->temp);//this->query 생성
 		$this->exec();
+
 
 	}
 
@@ -61,30 +62,14 @@ class statistic Extends Page {
 		}
 		
 
-		$st_date=$st_day.$st_time;
-		$end_date=$end_day.$end_time;
+		$
 
+		$st_date=$fyear.'-'.$fmonth;
+		
 
 		if ($st_day) {
-			$this->where[] =" CONCAT(CALLDATE,CALLTIME)  >='$st_date'";
+			$this->where[] =" left(CALLDATE,7) ='$st_date'";
 
-		}
-		if ($end_day) {
-			$this->where[] =" CONCAT(CALLDATE,CALLTIME)  <='$end_date'";
-		}
-
-
- 	    if (isset($_GET['word'])==true && $_GET['word']!="") {
-
-		  if ($find) {
-			  $this->where[] ="  $find like '%$word%'";	
-		  } else {
-			  //검색조건이 전체일때 통합검색
-			  $wh[] ="TELNO like '%$word%'";
-
-			  $whr=implode(" or ", $wh);
-              $this->where[] ="($whr)";			
-		  }
 		}
 
 	}
@@ -121,7 +106,7 @@ class statistic Extends Page {
 
 			echo"<tr>
 					<td >$num</td>
-					<td class='ta_left pl_30'>$data[TELNO]</td>
+					<td class='ta_left pl_30'>$data[CALLDATE]</td>
 					<td>$data[trkCnt]</td>
 					<td>$trkDurationTime</td>					
 					<td>$data[incCnt]</td>

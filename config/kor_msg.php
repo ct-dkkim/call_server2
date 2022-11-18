@@ -39,7 +39,7 @@ $msg['doselect'] ="선택하세요";
 
 
 ################### 메뉴 #################################
-$tit['mainTitle']=array("session"=>"통화리스트", "phone"=>"전화번호관리","routing"=>"발신경로관리", "rout_prefix"=>"PREFIX별 발신경로관리","rout_ip"=>"IP별 발신경로관리", "rout_group"=>"라우팅그룹별 발신경로관리" ,"digit"=>"디지트변환관리","digit_group"=>"라우팅그룹별 변환관리", "pri"=>"PRI 국선관리", "class"=>"등급코드관리","etc"=>"부가서비스","etc_func"=>"기능코드 설정","etc_cpgroup"=>"당겨받기그룹","etc_trunk"=>"국선번호관리","etc_groupRring"=>"그룹링","etc_hunt"=>"헌트그룹관리" ,"history"=>"History","loginSetup"=>"관리자 관리 ","myInfo"=>"내정보 수정", "history_call"=>"통화내역 리스트", "history_user"=>"발신번호 기준 통계", "history_oper"=>"운영조작내역");
+$tit['mainTitle']=array("session"=>"통화리스트", "phone"=>"전화번호관리","routing"=>"발신경로관리", "rout_prefix"=>"PREFIX별 발신경로관리","rout_ip"=>"IP별 발신경로관리", "rout_group"=>"라우팅그룹별 발신경로관리" ,"digit"=>"디지트변환관리","digit_group"=>"라우팅그룹별 변환관리", "pri"=>"PRI 국선관리", "class"=>"등급코드관리","etc"=>"부가서비스","etc_func"=>"기능코드 설정","etc_cpgroup"=>"당겨받기그룹","etc_trunk"=>"국선번호관리","etc_groupRring"=>"그룹링","etc_hunt"=>"헌트그룹관리" ,"history"=>"History","loginSetup"=>"관리자 관리 ","myInfo"=>"내정보 수정", "history_call"=>"통화내역 리스트", "history_user"=>"발신번호 기준 통계", "history_date"=>"날짜 기준 통계", "history_oper"=>"운영조작내역");
 
 
 $tit['btn'] = array("import" => "업로드", "export" => "다운로드","save" => "저장", "modify" => "수정", "cancle" => "취소", "add" => "추가", "del" => "삭제","search" => "검색","reset" => "초기화", "close" => "닫기") ; 
@@ -56,9 +56,12 @@ $aCType=array("TRK" =>"TRK","INC"=>"INC","STN" =>"STN");
 $aCStatus=array("Answering" =>"Answering","Calling"=>"Calling","Trying" =>"Trying","Connect"=>"Connect");
 
 
-$titSession['listTitle']= array("callCnt"=>"동시콜수","callNumber"=>"발신전화번호", "sDate"=>"시화일자","sTime"=>"시화시간","sDateTime"=>"시화일지","eDateTime"=>"종료일시","duration"=>"발언시간","reNumber"=>"상대방번화번호", "sendIP"=>"발신IP", "reIP"=>"상대방IP","callType"=>"호종류", "callStauts"=>"호상태", "avType"=>"영상/음성", "trk"=>"TRK", "inc"=>"INC", "stn"=>"STN", "callCount"=>"콜 수", "total"=>"합계");
+$titSession['listTitle']= array("callCnt"=>"동시콜수","callNumber"=>"발신전화번호", "sDate"=>"시화일자","sTime"=>"시화시간","sDateTime"=>"시화일지","eDateTime"=>"종료일시","duration"=>"발언시간","reNumber"=>"상대방번화번호", "sendIP"=>"발신IP", "reIP"=>"상대방IP","callType"=>"호종류", "callStauts"=>"호상태", "avType"=>"영상/음성", "trk"=>"TRK", "inc"=>"INC", "stn"=>"STN", "callCount"=>"콜 수", "total"=>"합계", "dateFomat"=>"검색 단위");
 
 $titSession['noMsg'] ="현재 통화량이 없습니다.";
+
+### 검색단위 
+$schTime=array("day" =>"일","month"=>"월");
 
 
 ### 적용파일: 다운로드 (/history/downFile.php) 
