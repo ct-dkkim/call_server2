@@ -45,7 +45,6 @@ class statistic Extends Page {
 				end
 			)	
 		,0)	AS stnDuration";
-		$this->temp="GROUP BY CALLDATE ";
 		
 		$this->set_where(); 
 		$this->setQuery($this->table,$this->where,"CALLDATE",$this->temp);//this->query 생성
@@ -59,20 +58,19 @@ class statistic Extends Page {
 		global $admin_info ; 
 		foreach($_GET as $_tmp['k'] => $_tmp['v']) {
 			${$_tmp['k']} = $_tmp['v'];
+		}		
+		if ($search_type == "day") {
+			$this->where[] =" date_format(CALLDATE,'%Y%m') = $fyear$fmonth ";
+			$this->temp="GROUP BY CALLDATE ";
+		} else {
+			$this->field="date_format(CALLDATE,'%Y%m') as ".$this->field;
+			$this->where[] =" date_format(CALLDATE,'%Y') = $fyear ";
+			$this->temp="GROUP BY date_format(CALLDATE,'%Y%m') ";
 		}
-		
-
-		$
-
-		$st_date=$fyear.'-'.$fmonth;
-		
-
-		if ($st_day) {
-			$this->where[] =" left(CALLDATE,7) ='$st_date'";
-
-		}
-
 	}
+
+
+	
 
     ### 리스트 출력
 	function get_ListValue() {
@@ -80,7 +78,7 @@ class statistic Extends Page {
 
 		$var= getVars('no,chk,rndval');
 		$res = mysqli_query($this->db,$this->query);
-
+		
 		//$num = $this->recode['total'] - ($this->page['now']-1) * $this->page['num'] + 1;
 		$num = ($this->page['now']-1)*$this->page['num'];
 
@@ -93,6 +91,7 @@ class statistic Extends Page {
 		$totTime1=0;
 		$totTime4=0;
 		$totTime8=0;
+		
 		
 		//echo "<tr><td colspan=10>".$this->query."</td></tr>";
 		while ($data = mysqli_fetch_array($res)){

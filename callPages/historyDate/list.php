@@ -45,11 +45,11 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 
 
 	if (!$fyear) {
-	$search_type="day";
-	$fyear=date('Y');
-	$fmonth=date('m');
+		$search_type="day";
+		$fyear=date('Y');
+		$fmonth=date('m');
 
-	$_SESSION['Vars'] = "search_type=$search_type&fyear=$fyear&fmonth=$fmonth";
+		$_SESSION['Vars'] = "search_type=$search_type&fyear=$fyear&fmonth=$fmonth";
 	}
 
 	if ($search_type) {
@@ -91,27 +91,12 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 			  listRefresh("<?=$_SESSION['Vars']?>");
 			  $(".popup_layer").draggable();
 
-			  $('#st_time').timeEntry({
-					show24Hours: true,
-					showSeconds: true,
-					defaultTime: "<?=$st_time?>"
-			  });
-
-
 			  //##### 검색
 			  $("#BtnSearch").click(function(e){
 				 var search_type=$('input:radio[name="rsearch_type"]:checked').val()
 				 $('#search_type').val(search_type)
-				 var params = [ 'st_day', 'st_time','rsearch_type','fyear','fmonth','page_num'];
+				 var params = [ 'search_type','fyear','fmonth','page_num'];
  		    	 var delparams = [ 'page' ];
-				  if ($('#st_day').val()==""){
-					 alert("<?=$msgStat['errDate']?>")
-					 $('#st_day').focus()
-					  return false
-				  }
-
-				  
-				  					 
 
 				 chgListVars(params,delparams);
 			  });
@@ -133,25 +118,8 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 				 chgListVars(params,delparams);
 			  });
 
-			  $("#BtnReset").click(function(e){
-				 var params = [ 'st_day', 'st_time','end_day','end_time','find','fyear','page_num'];
 
- 
-				 for(var i=4; i<params.length;i++) {
-				 	$("#"+params[i]).val('')
-				 }
-
-
-				 $("#st_day").val('<?=$today?>')
-				 $("#end_day").val('<?=$today?>')
-				 $("#st_time").val('00:00:00')
-				 $("#end_time").val('23:59:59')
-
- 		    	 var delparams = [ 'page'];
-				 chgListVars(params,delparams);
-			  });	
-
-			  		  			  //##### 엑셀파일다운로드
+			  //##### 엑셀파일다운로드
 			  $("#BtnFileDown").click(function(e){
 	  			  var top=e.pageY - 100
 				  var total=$('#divPageNum').html()
@@ -169,12 +137,6 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 			function findSelect(item) {
  		    	 var delparams = ['page',];	
 				 var params = [ 'page_num'];
-				  if ($('#st_day').val()==""){
-					 alert("<?=$msgStat['errDate']?>")
-					 $('#st_day').focus()
-					  return false
-				  }		
-
 
 				 if (item){
 					params[1]= item
@@ -185,15 +147,12 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 			}
 
 			function searchtype_chk() {
-			  if (document.fmList.rsearch_type[1].checked==true) {
-					$('#DivMonthSelect').hide()
-			  } else {
-					$('#DivMonthSelect').show()
-			  }
-	
+				if($('input:radio[id=month]').is(':checked')){
+					$('#DivMonthSelect').hide();
+				}else{
+					$('#DivMonthSelect').show();
+				}
 			}
-
-
 
 	  </script>
 </head>
@@ -211,14 +170,15 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 	<div class="sub_head1 clear ">
 		<h2 class="sub_head_title fl"><?=$tit['mainTitle']['history_date']?></h2>
 	</div>
-	<form name="fmList" id='fmList' method="post" >
+	
 	<div class="sub_head2 clear ">
 		<div class="sub_head_search fr ta_right">
 				<fieldset>
 					<legend>검색폼</legend>					
-					<div class="option">
+					
+					<div class="option">						
 						<strong><!--통계기준--><?=$titSession['listTitle']['dateFomat']?></strong>
-						<input type="radio" name="rsearch_type" id='day' value="day"    <?=$checked['search_type']['day']?> onclick='searchtype_chk()'>
+						<input type="radio" name="rsearch_type" id="day" value="day"  <?=$checked['search_type']['day']?> onclick='searchtype_chk()'>
 						<label for="PTTGroup" class="mr5"><!--일별--><?=strtoupper($schTime['day'])?></label>
 
 						<input type="radio" name="rsearch_type" id="month" value="month"  <?=$checked['search_type']['month']?> onclick='searchtype_chk()'>
@@ -226,6 +186,7 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 
 
 					</div>
+					
 					<div class="option">
 					  <select name=fyear id="fyear" class="selectClass w80">
 						 <? for ($i=$firstYear;$i<=date('Y');$i++){
@@ -265,12 +226,12 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 				</fieldset>
 		</div>
 	</div>	
-	
+	<form name="fmList" id='fmList' method="post" >
 	<input type=hidden name="vars" id='vars' value="<?=$_SESSION['Vars']?>" size="80">     <!--ajax 리스트 변수-->
 	<input type=hidden name="page" id='page' value="<?=$page?>">
 	<input type=hidden name="allchk" id='allchk' value='<?=$allchk?>' >
 	<input type=hidden name="chkvalue" id="chkvalue" value="<?=$chkvalue?>">
-
+	<input type=hidden name="search_type" id='search_type' value="<?=$search_type?>">
 
 
 	<table class="bbs_table_list" cellpadding="0" cellspacing="0" border="0">
