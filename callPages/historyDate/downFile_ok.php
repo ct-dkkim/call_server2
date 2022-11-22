@@ -21,7 +21,7 @@ if (!$_SESSION['downResult']){
 
 
 $objReader = PHPExcel_IOFactory::createReader('Excel5');
-$objPHPExcel = $objReader->load("../outline/temp_historyuser.xls");
+$objPHPExcel = $objReader->load("../outline/temp_historydate.xls");
 
 // Set document properties
 $objPHPExcel->getProperties()->setCreator("Maarten Balliauw")
@@ -35,49 +35,22 @@ $objPHPExcel->getProperties()->setCreator("Maarten Balliauw")
 
 
 $table = "CALL_HISTORY";
-$order =" TELNO ";
-		$st_date=$st_day.$st_time;
-		$end_date=$end_day.$end_time;
+$order =" CALLDATE ";
+$field = "";
 
-
-		if ($st_day) {
-			$where[] =" CONCAT(CALLDATE,CALLTIME)  >='$st_date'";
-
-		}
-		if ($end_day) {
-			$where[] =" CONCAT(CALLDATE,CALLTIME)  <='$end_date'";
-		}
-
-
-
-		if ($ftype !="") {
-			$where[] =" CALLTYPE ='$ftype'";
-		}
-
-		if ($fstatus !="") {
-			$where[] =" CALLSTAT ='$fstatus'";
-		}
-
- 	    if (isset($word)==true && $word!="") {
-
-		  if ($find) {
-			  $where[] ="  $find like '%$word%'";	
-		  } else {
-			  //검색조건이 전체일때 통합검색
-			  $wh[] ="TELNO like '%$word%'";
-			  $w=implode(" or ", $wh);
-              $where[] ="($w)";			
-		  }
-		}
-
-if (!$where) {
-	$whr = "1";
+if ($search_type == "day") {
+	$whr =" date_format(CALLDATE,'%Y%m') = $fyear$fmonth ";
+	$temp="GROUP BY CALLDATE ";
+	$xls_name = $fyear."-".$fmonth;
 } else {
-	$whr=implode(" and ", $where) ; 
+	$field="date_format(CALLDATE,'%Y-%m') as ";
+	$whr =" date_format(CALLDATE,'%Y') = $fyear ";
+	$temp="GROUP BY date_format(CALLDATE,'%Y%m') ";
+	$xls_name = $fyear;
 }
 
 
-$sql="select TELNO,
+$sql="select $field CALLDATE, 
 COUNT(TELNO) as totalCnt,
 COALESCE(
 	SUM(
@@ -107,22 +80,17 @@ COALESCE(
 		TIME_TO_SEC(TIMEDIFF(CONCAT(ENDDATE,' ',ENDTIME),CONCAT(CALLDATE,' ',CALLTIME)))
 		end
 	)	
-,0)	AS stnDuration 
-from $table where $whr GROUP BY TELNO  order by $order "  ;
+,0)	AS stnDuration
+from $table where $whr $temp order by $order "  ;
 $result=mysqli_query($db,$sql);
 $line=2;
 
 
 while ($row = mysqli_fetch_array($result)){
-		$st_date =  date($dateType, strtotime($row["CALLDATE"]." ".$row['CALLTIME']));
-		if (strtotime($row["ENDDATE"]) > 0) {
-			$end_date =  date($dateType, strtotime($row["ENDDATE"]." ".$row['ENDTIME']));
-		}  else {
-			$end_date="";
-		}	
+			
 
 		$objPHPExcel->setActiveSheetIndex(0)
-					->setCellValue('A'.$line, " ".$row['TELNO'])
+					->setCellValue('A'.$line, " ".$row['CALLDATE'])
 					->setCellValue('B'.$line, $row['trkCnt'])
 					->setCellValue('C'.$line, get_time($row['trkDuration']))
 					->setCellValue('D'.$line, $row['incCnt'])
@@ -138,12 +106,12 @@ while ($row = mysqli_fetch_array($result)){
 $reg_date=date("Y-m-d H:i:s");
 
 
-regLog($admin_info['user_id'], '11','down',$tit['mainTitle']['history_user'], ($line-2)." ".$msg['unit'] ,'ENG',$reg_date,'') ;
+regLog($admin_info['user_id'], '11','down',$tit['mainTitle']['history_date'], ($line-2)." ".$msg['unit'] ,'ENG',$reg_date,'') ;
 
 // Rename worksheet
 $objPHPExcel->getActiveSheet()->setTitle( );
 
-$fileName='Callnum('.$st_day.'-'.$end_day.')';
+$fileName='History_Date('.$xls_name.')';
 
 // Set active sheet index to the first sheet, so Excel opens this as the first sheet
 $objPHPExcel->setActiveSheetIndex(0);

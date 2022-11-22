@@ -17,7 +17,7 @@ if (!$_SESSION['Vars']){
 	$_SESSION['Vars']=$vars;
 }
 
-if (!$_GET['page_num']) $_GET['page_num']="20";
+if (!$_GET['page_num']) $_GET['page_num']="31";
 $setClass=new statistic($_GET['page'],$_GET['page_num']);
 $setClass->_set();
 

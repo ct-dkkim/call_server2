@@ -51,7 +51,7 @@ $aCType=array("TRK" =>"TRK","INC"=>"INC","STN" =>"STN");
 $aCStatus=array("Answering" =>"Answering","Calling"=>"Calling","Trying" =>"Trying","Connect"=>"Connect");
 
 
-$titSession['listTitle']= array("callCnt"=>"Concurrent","callNumber"=>"Calling Number", "sDate"=>"Start Date","sTime"=>"Start Time","sDateTime"=>"Start Date/Time","eDateTime"=>"End Date/Time", "duration"=>"Duration", "reNumber"=>"Called Number", "sendIP"=>"Calling IP", "reIP"=>"Called IP","callType"=>"Call Type", "callStauts"=>"Call Status", "avType"=>"A/V", "trk"=>"TRK", "inc"=>"INC", "stn"=>"STN", "callCount"=>"Call Count", "total"=>"Total", "dateFomat"=>"Date Fomat");
+$titSession['listTitle']= array("callCnt"=>"Concurrent","callNumber"=>"Calling Number", "sDate"=>"Start Date","sTime"=>"Start Time","sDateTime"=>"Start Date/Time","eDateTime"=>"End Date/Time", "duration"=>"Duration", "reNumber"=>"Called Number", "sendIP"=>"Calling IP", "reIP"=>"Called IP","callType"=>"Call Type", "callStauts"=>"Call Status", "avType"=>"A/V", "trk"=>"TRK", "inc"=>"INC", "stn"=>"STN", "callCount"=>"Call Count", "total"=>"Total", "dateFomat"=>"Date Fomat", "date"=>"Date");
 $titSession['noMsg'] ="There is not current calls."; 
 
 ### 검색단위 

@@ -63,7 +63,7 @@ class statistic Extends Page {
 			$this->where[] =" date_format(CALLDATE,'%Y%m') = $fyear$fmonth ";
 			$this->temp="GROUP BY CALLDATE ";
 		} else {
-			$this->field="date_format(CALLDATE,'%Y%m') as ".$this->field;
+			$this->field="date_format(CALLDATE,'%Y-%m') as ".$this->field;
 			$this->where[] =" date_format(CALLDATE,'%Y') = $fyear ";
 			$this->temp="GROUP BY date_format(CALLDATE,'%Y%m') ";
 		}

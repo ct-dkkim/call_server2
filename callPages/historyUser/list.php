@@ -150,15 +150,7 @@ $html_Find=selectbox("find",$aFind,$find,$msg['allchk'],"","130");
 				 chgListVars(params,delparams);
 			  });	
 
-			  		  			  //##### 엑셀파일다운로드
-			  $("#BtnFileDown").click(function(e){
-	  			  var top=e.pageY - 100
-				  var total=$('#divPageNum').html()
-				  $('#DownDate').html($('#st_day').val() + " ~ " +$('#end_day').val())
-				  $('#downTotal').html(total)
-				  LayerPopup_type2('#divDown',top)
-
-			  });
+			  	
 
 			})
 

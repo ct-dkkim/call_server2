@@ -90,6 +90,8 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 			$(document).ready(function(){
 			  listRefresh("<?=$_SESSION['Vars']?>");
 			  $(".popup_layer").draggable();
+			  $('#divPageNum').hide();
+
 
 			  //##### 검색
 			  $("#BtnSearch").click(function(e){
@@ -106,7 +108,12 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 	  			  var top=e.pageY - 100
 				  var pageTotal=$('#divPageNum').html().split("(")
 				  var total=pageTotal[0].split(":")
-				  $('#DownDate').html($('#st_day').val() + " ~ " +$('#end_day').val())
+				  if($('input:radio[id=month]').is(':checked')){
+					$('#DownDate').html($('#fyear').val())
+					}else{
+					$('#DownDate').html($('#fyear').val() + " - " +$('#fmonth').val())
+					}
+				  
 				  $('#downTotal').html(total[1])
 				  LayerPopup_type2('#divDown',top)
 			  });
@@ -118,16 +125,6 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 				 chgListVars(params,delparams);
 			  });
 
-
-			  //##### 엑셀파일다운로드
-			  $("#BtnFileDown").click(function(e){
-	  			  var top=e.pageY - 100
-				  var total=$('#divPageNum').html()
-				  $('#DownDate').html($('#st_day').val() + " ~ " +$('#end_day').val())
-				  $('#downTotal').html(total)
-				  LayerPopup_type2('#divDown',top)
-
-			  });
 
 			  searchtype_chk()
 
@@ -172,6 +169,7 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 	</div>
 	
 	<div class="sub_head2 clear ">
+	<div class="fl" id="divPageNum"></div>
 		<div class="sub_head_search fr ta_right">
 				<fieldset>
 					<legend>검색폼</legend>					
@@ -232,6 +230,7 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 	<input type=hidden name="allchk" id='allchk' value='<?=$allchk?>' >
 	<input type=hidden name="chkvalue" id="chkvalue" value="<?=$chkvalue?>">
 	<input type=hidden name="search_type" id='search_type' value="<?=$search_type?>">
+	<input type=hidden name="page_num" id='page_num' value="31">
 
 
 	<table class="bbs_table_list" cellpadding="0" cellspacing="0" border="0">
@@ -250,7 +249,7 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 		<thead>
 			<tr>
 				<th rowspan=2>No</th>
-				<th rowspan=2><?=$titSession['listTitle']['callNumber']?></th>
+				<th rowspan=2><?=$titSession['listTitle']['date']?></th>
 				<th colspan=2><?=$titSession['listTitle']['trk']?></th>
 				<th colspan=2><?=$titSession['listTitle']['inc']?></th>
 				<th colspan=2><?=$titSession['listTitle']['stn']?></th>
@@ -275,8 +274,7 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 		<div class="bbs_btn ta_right fl">
 			<button onclick="return false" id="BtnXlsDown" class="btn_nor btn_grey"><?=$tit['btn']['export']?></button>
 		</div>	
-		<div class="paginate" id='divPage'>
-		</div>
+		
 		<div class="bbs_btn ta_right fr">
 
 		</div>
