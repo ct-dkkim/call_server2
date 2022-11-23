@@ -50,6 +50,7 @@ class statistic Extends Page {
 		$this->set_where(); 
 		$this->setQuery($this->table,$this->where,"TELNO",$this->temp);//this->query 생성
 		$this->exec();
+		
 
 	}
 
@@ -108,7 +109,37 @@ class statistic Extends Page {
 		$totTime1=0;
 		$totTime4=0;
 		$totTime8=0;
-		
+
+
+		//출력물 전체 총합이 나오게 표시 start
+		$totQuery = explode("GROUP BY",$this->query);
+
+		$totres = mysqli_fetch_array(mysqli_query($this->db,$totQuery[0]));
+
+
+		$totTime1HMS = get_time($totres['trkDuration']);
+		$totTime4HMS = get_time($totres['incDuration']);
+		$totTime8HMS = get_time($totres['stnDuration']);
+		$totTimeHMS = get_time($totres['totalDuration']);
+
+
+		echo "<tr>
+		<td colspan=2 >ALL Total</td>
+		<td>".$totres['trkCnt']."</td>
+		<td>".$totTime1HMS."</td>
+		<td>".$totres['incCnt']."</td>
+		<td>".$totTime4HMS."</td>
+		<td>".$totres['stnCnt']."</td>
+		<td>".$totTime8HMS."</td>
+		<td>".$totres['totalCnt']."</td>
+		<td>".$totTimeHMS."</td>
+		</tr>";
+		//출력물 전체 총합이 나오게 표시 end
+
+
+
+
+
 		//echo "<tr><td colspan=10>".$this->query."</td></tr>";
 		while ($data = mysqli_fetch_array($res)){
 			//$num--;
@@ -131,37 +162,7 @@ class statistic Extends Page {
 					<td>$data[totalCnt]</td>
 					<td>$stnDurationTime</td>
 				</tr>";
-
-				$totCnt += $data['totalCnt'];
-				$totCnt1 += $data['trkCnt'];
-				$totCnt4 += $data['incCnt'];
-				$totCnt8 += $data['stnCnt'];
-				$totTime += $data['totalDuration'];
-				$totTime1 += $data['trkDuration'];
-				$totTime4 += $data['incDuration'];
-				$totTime8 += $data['stnDuration'];
 		}
-
-		$totTime1HMS = get_time($totTime1);
-		$totTime4HMS = get_time($totTime4);
-		$totTime8HMS = get_time($totTime8);
-		$totTimeHMS = get_time($totTime);
-
-
-
-		
-		echo"<tr>
-					<td colspan=2 >Total</td>
-					<td>$totCnt1</td>
-					<td>$totTime1HMS</td>					
-					<td>$totCnt4</td>
-					<td>$totTime4HMS</td>
-					<td>$totCnt8</td>
-					<td>$totTime8HMS</td>
-					<td>$totCnt</td>
-					<td>$totTimeHMS</td>
-		</tr>";
-
 	}
 
 

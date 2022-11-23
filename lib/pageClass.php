@@ -88,6 +88,8 @@ class Page{
 		}
 	}
 
+	
+
 	function exec()
 	{
 		global $bbs;
