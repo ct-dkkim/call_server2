@@ -123,16 +123,16 @@ class statistic Extends Page {
 		$totTimeHMS = get_time($totres['totalDuration']);
 
 
-		echo "<tr>
-		<td colspan=2 >ALL Total</td>
-		<td>".$totres['trkCnt']."</td>
-		<td>".$totTime1HMS."</td>
-		<td>".$totres['incCnt']."</td>
-		<td>".$totTime4HMS."</td>
-		<td>".$totres['stnCnt']."</td>
-		<td>".$totTime8HMS."</td>
-		<td>".$totres['totalCnt']."</td>
-		<td>".$totTimeHMS."</td>
+		echo "<tr id='totcont'>
+		<th colspan=2 >ALL Total</th>
+		<th>".$totres['trkCnt']."</th>
+		<th>".$totTime1HMS."</th>
+		<th>".$totres['incCnt']."</th>
+		<th>".$totTime4HMS."</th>
+		<th>".$totres['stnCnt']."</th>
+		<th>".$totTime8HMS."</th>
+		<th>".$totres['totalCnt']."</th>
+		<th>".$totTimeHMS."</th>
 		</tr>";
 		//출력물 전체 총합이 나오게 표시 end
 

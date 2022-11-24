@@ -77,11 +77,6 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 	  <script type="text/javascript" src='../../js/calendar-eraser_lim.js'></script>
 	  <link rel='stylesheet' href='../../js/calendar-eraser_lim.css' type='text/css'>
 	  <script type="text/javascript" src="../../js/jquery.timeentry.js"></script>
-	  <style>      
-		table.bbs_table_list th {border-bottom:1px solid #d3d3d3; background-color:#f5f5f5; font-weight:600; padding:5px 2px ; color:#333; line-height:17px;vertical-align: middle;}
-		.sub_head_search {float: left; margin-top: 16px; padding-left:7px;}
-	  </style>
-
 	  <script type="text/javascript">
 			var ajaxObjects = new Array();
 			var timeid;
@@ -170,12 +165,12 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 	
 	<div class="sub_head2 clear ">
 	<div class="fl" id="divPageNum"></div>
-		<div class="sub_head_search fr ta_right">
+		<div class="sub_head_search_tot fr ta_right">
 				<fieldset>
 					<legend>검색폼</legend>					
 					
 					<div class="option">						
-						<strong><!--통계기준--><?=$titSession['listTitle']['dateFomat']?></strong>
+						<stong class="sch_tot_title" ><!--통계기준--><?=$titSession['listTitle']['dateFomat']?></stong>
 						<input type="radio" name="rsearch_type" id="day" value="day"  <?=$checked['search_type']['day']?> onclick='searchtype_chk()'>
 						<label for="PTTGroup" class="mr5"><!--일별--><?=strtoupper($schTime['day'])?></label>
 
@@ -247,7 +242,7 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 			<col width='10%'>
 		</colgroup>
 		<thead>
-			<tr>
+			<tr id='totcont'>
 				<th rowspan=2>No</th>
 				<th rowspan=2><?=$titSession['listTitle']['date']?></th>
 				<th colspan=2><?=$titSession['listTitle']['trk']?></th>
@@ -255,7 +250,7 @@ include_once dirname(__FILE__) . "/../../lib/setConfig.php";
 				<th colspan=2><?=$titSession['listTitle']['stn']?></th>
 				<th colspan=2><?=$titSession['listTitle']['total']?></th>
 			</tr>
-			<tr>
+			<tr id='totcont'>
 				<th><?=$titSession['listTitle']['callCount']?></th>
 				<th><?=$titSession['listTitle']['duration']?></th>
 				<th><?=$titSession['listTitle']['callCount']?></th>

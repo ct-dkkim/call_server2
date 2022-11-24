@@ -134,16 +134,16 @@ class statistic Extends Page {
 
 
 		
-		echo"<tr>
-					<td colspan=2 >Total</td>
-					<td>$totCnt1</td>
-					<td>$totTime1HMS</td>					
-					<td>$totCnt4</td>
-					<td>$totTime4HMS</td>
-					<td>$totCnt8</td>
-					<td>$totTime8HMS</td>
-					<td>$totCnt</td>
-					<td>$totTimeHMS</td>
+		echo"<tr id='totcont'>
+					<th colspan=2 >Total</th>
+					<th>$totCnt1</th>
+					<th>$totTime1HMS</th>					
+					<th>$totCnt4</th>
+					<th>$totTime4HMS</th>
+					<th>$totCnt8</th>
+					<th>$totTime8HMS</th>
+					<th>$totCnt</th>
+					<th>$totTimeHMS</th>
 		</tr>";
 
 	}

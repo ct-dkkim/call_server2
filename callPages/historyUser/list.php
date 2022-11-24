@@ -73,10 +73,6 @@ $html_Find=selectbox("find",$aFind,$find,$msg['allchk'],"","130");
 	  <script type="text/javascript" src='../../js/calendar-eraser_lim.js'></script>
 	  <link rel='stylesheet' href='../../js/calendar-eraser_lim.css' type='text/css'>
 	  <script type="text/javascript" src="../../js/jquery.timeentry.js"></script>
-	  <style>      
-		table.bbs_table_list th {border-bottom:1px solid #d3d3d3; background-color:#f5f5f5; font-weight:600; padding:5px 2px ; color:#333; line-height:17px;vertical-align: middle;}
-	  </style>
-
 	  <script type="text/javascript">
 			var ajaxObjects = new Array();
 			var timeid;
@@ -240,15 +236,15 @@ $html_Find=selectbox("find",$aFind,$find,$msg['allchk'],"","130");
 			<col width='10%'>
 		</colgroup>
 		<thead>
-			<tr>
-				<th class='head_title' rowspan=2>No</th>
+			<tr id='totcont'>
+				<th rowspan=2>No</th>
 				<th rowspan=2><?=$titSession['listTitle']['callNumber']?></th>
 				<th colspan=2><?=$titSession['listTitle']['trk']?></th>
 				<th colspan=2><?=$titSession['listTitle']['inc']?></th>
 				<th colspan=2><?=$titSession['listTitle']['stn']?></th>
 				<th colspan=2><?=$titSession['listTitle']['total']?></th>
 			</tr>
-			<tr>
+			<tr id='totcont'>
 				<th><?=$titSession['listTitle']['callCount']?></th>
 				<th><?=$titSession['listTitle']['duration']?></th>
 				<th><?=$titSession['listTitle']['callCount']?></th>
