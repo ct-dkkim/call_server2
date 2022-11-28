@@ -236,7 +236,7 @@ $html_Find=selectbox("find",$aFind,$find,$msg['allchk'],"","130");
 			<col width='10%'>
 		</colgroup>
 		<thead>
-			<tr id='totcont'>
+			<tr id='tothead'>
 				<th rowspan=2>No</th>
 				<th rowspan=2><?=$titSession['listTitle']['callNumber']?></th>
 				<th colspan=2><?=$titSession['listTitle']['trk']?></th>
@@ -244,7 +244,7 @@ $html_Find=selectbox("find",$aFind,$find,$msg['allchk'],"","130");
 				<th colspan=2><?=$titSession['listTitle']['stn']?></th>
 				<th colspan=2><?=$titSession['listTitle']['total']?></th>
 			</tr>
-			<tr id='totcont'>
+			<tr id='tothead'>
 				<th><?=$titSession['listTitle']['callCount']?></th>
 				<th><?=$titSession['listTitle']['duration']?></th>
 				<th><?=$titSession['listTitle']['callCount']?></th>
