@@ -113,7 +113,7 @@ class statistic Extends Page {
 					<td>$data[stnCnt]</td>
 					<td>$stnDurationTime</td>
 					<td>$data[totalCnt]</td>
-					<td>$stnDurationTime</td>
+					<td>$totalDurationTime</td>
 				</tr>";
 
 				$totCnt += $data['totalCnt'];
