@@ -134,7 +134,7 @@ $titClass['dubleLimit'] = "This Limit Code is already registered.";
 
 
 ########################  부가서버스 #######################################
-$titEtc['listTitle']= array("gCode"=>"Group Code", "gName"=>"Group Name","tNo"=>"Trunk Number 번호","tName"=>"Trunk Name", "tPort"=>"Trunk Port", "rGroup"=>"Ring Group","rName"=>"Ring Name","rType"=>"Ring Type", "phone"=>"Phone Number","hGroup"=>"Hunt Group", "hPhone"=>"Phone Number" );
+$titEtc['listTitle']= array("gCode"=>"Group Code", "gName"=>"Group Name","tNo"=>"Trunk Number","tName"=>"Trunk Name", "tPort"=>"Trunk Port", "rGroup"=>"Ring Group","rName"=>"Ring Name","rType"=>"Ring Type", "phone"=>"Phone Number","hGroup"=>"Hunt Group", "hPhone"=>"Phone Number" );
 
 $arrRtype = array ("1"=>"All", "2"=>"Alone") ; 
 
