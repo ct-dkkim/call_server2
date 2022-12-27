@@ -11,7 +11,9 @@ $date=time();
 
 $password= PassEncoding($pw);
 
-
+if ($c_level==0) {
+	$c_level= 1;  
+}
 $mainSql ="name='$c_name', level='$c_level',";
 if ($pw)  $mainSql.= " password='$password'," ;
 $mainSql .=" email='$email', user_view='$user_view', user_add='$user_add', user_mod='$user_mod', user_del='$user_del', phone_view='$phone_view', phone_add='$phone_add', phone_mod='$phone_mod', phone_del='$phone_del', routing_view='$routing_view', routing_add='$routing_add', routing_mod='$routing_mod', routing_del='$routing_del', conversion_view='$conversion_view', conversion_add='$conversion_add', conversion_mod='$conversion_mod', conversion_del='$conversion_del', class_view='$class_view', class_add='$class_add', class_mod='$class_mod', class_del='$class_del', ptt_view='$ptt_view', ptt_add='$ptt_add', ptt_mod='$ptt_mod', ptt_del='$ptt_del'";
