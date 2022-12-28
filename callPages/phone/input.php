@@ -221,12 +221,12 @@ function requestChkInfo2() {
 
 					<tr>
 						<th><?=$titPhone['listTitle']['pw']?></th>
-						<td><input type="text" id="pw" name="pw" class="input_w170 intbox" value="" maxlength="16" ></td>
+						<td><input type="password" id="pw" name="pw" class="input_w170 intbox" value="" maxlength="16" ></td>
 					</tr>
 
 					<tr>
 						<th><?=$titPhone['listTitle']['re_pw']?></th>
-						<td><input type="text" id="re_pw" name="re_pw" class="input_w170 w70 " value="" maxlength="16"></td>
+						<td><input type="password" id="re_pw" name="re_pw" class="input_w170 w70 " value="" maxlength="16"></td>
 					</tr>
 					<tr>
 						<th><?=$titPhone['listTitle']['username']?></th>
