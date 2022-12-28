@@ -177,7 +177,7 @@ function requestChkInfo2() {
 			success: function(data){
 				data = $.trim(data)				
                  if (data.length > 2) {
-					 alert("이미 존재하는 ID 입니다.");
+					alert("<?=$titPhone['dubleID']?>");
                      $("#userid").select()
                      $("#userid").focus()
                      return false

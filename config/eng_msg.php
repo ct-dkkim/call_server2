@@ -72,6 +72,7 @@ $titSession['downTitle2'] ="Total";
 $titPhone['listTitle'] =  array("phone"=>"Phone Number", "userid"=>"User ID","pw"=>"Password","re_pw"=>"Password(Confirm)", "username"=>"User Name","mac"=>"MAC Address","ip"=>"IP Address", "ip2"=>"(P) IP Address", "port"=>"Port","expires"=>"Expires","maxduration"=>"Max Duration", "cid"=>"CID Number" , "class"=>"Class", "pgroup"=>"Pickup Group", "trunk"=>"Trunk Number", "rgroup"=>"Routing Group", "rec"=>"Recording","status" =>"Status" , "dnd"=>"DND" , "cforword"=>"CFORWORD");
 
 $titPhone['dublePhone'] = "This Phone Number is already registered."; 
+$titPhone['dubleID'] = "This User ID is already registered."; 
 $titPhone['errMac'] ="The same Mac Address existed." ; //중복된 MAC Adrdress가 존재합니다.
 $titPhone['errIp'] ="Please input proper IP address." ;//정확한 IP주소를 입력해주세요
 

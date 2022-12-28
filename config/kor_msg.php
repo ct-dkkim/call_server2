@@ -77,6 +77,7 @@ $titSession['downTitle2'] ="전체";
 $titPhone['listTitle'] =  array("phone"=>"전화번호", "userid"=>"인증 ID","pw"=>"인증암호","re_pw"=>"인증암호 확인 ", "username"=>"고객명","mac"=>"MAC 주소","ip"=>"IP 주소","ip2"=>"장비 IP", "port"=>"포트","expires"=>"등록주기","maxduration"=>"통화제한시간", "cid"=>"발신자표시번호" , "class"=>"전화사용등급", "pgroup"=>"당겨받기 그룹", "trunk"=>"트렁크 번호", "rgroup"=>"라우팅 그룹", "rec"=>"녹취" ,"status" =>"Status"  , "dnd"=>"DND", "cforword"=>"CFORWORD" );
 
 $titPhone['dublePhone'] = "이미 등록된 전화번호입니다."; 
+$titPhone['dubleID'] = "이미 등록된 User ID입니다."; 
 $titPhone['errMac'] ="중복된 MAC Adrdress가 존재합니다." ; //중복된 MAC Adrdress가 존재합니다.
 $titPhone['errIp'] ="정확한 IP주소를 입력해주세요" ;//정확한 IP주소를 입력해주세요
 
