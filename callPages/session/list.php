@@ -68,7 +68,7 @@ $html_status=selectbox("fstatus",$aCStatus,$fstatus,$titSession['listTitle']['ca
 
 			  $("#BtnReset").click(function(e){
 
-				 var params = [ 'find','word'];
+				 var params = [ 'find','word','ftype','fstatus' ];
 				 for(var i=0; i<params.length;i++) {
 				 	$("#"+params[i]).val('')
 				 }
@@ -88,6 +88,7 @@ $html_status=selectbox("fstatus",$aCStatus,$fstatus,$titSession['listTitle']['ca
 				ajaxObjects[ajaxIndex].method = "GET";
 				ajaxObjects[ajaxIndex].setVar("session_auto",session_auto);
 				ajaxObjects[ajaxIndex].setVar("retime",$("#retime").val());
+				ajaxObjects[ajaxIndex].setVar("ftype",$("#ftype").val());
 				ajaxObjects[ajaxIndex].setVar("fstatus",$("#fstatus").val());
 				ajaxObjects[ajaxIndex].setVar("find",$('#find').val());
 				ajaxObjects[ajaxIndex].setVar("word", $('#word').val());
