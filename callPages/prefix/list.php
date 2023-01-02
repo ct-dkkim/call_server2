@@ -201,11 +201,13 @@ $html_routing=selectbox("frouting",$arrRouting,$frouting,$titRouting['listTitle'
 		</colgroup>
 		<thead>
 			<tr>
+			<? if ($alevel['del']=="Y") { ?>	
 				<th>
 					<span >
 						<input type="checkbox" name='all' id='all' value='1' onclick='selectall()' <?=$allchecked?>>	
 					</span>
 				</th>
+			<?} ?>
 				<th>No</th>
 				<th><?=$titRouting['listTitle']['digit']?> </th>
 				<th><?=$titRouting['listTitle']['ip']?></th>
