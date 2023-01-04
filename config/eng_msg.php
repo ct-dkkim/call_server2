@@ -129,7 +129,7 @@ $titPritg['dubleIP'] = "This IP Address is already registered.";
 
 $titClass['listTitle'] =  array("no"=>"No","class"=>"Class", "explan"=>"Explanation","useCode"=>"Use Code","limitCode"=>"Limit Code" );
 $titClass['dubleClass'] = "This Class is already registered."; 
-$titClass['dubleUse'] = "This Use Coe is already registered."; 
+$titClass['dubleUse'] = "This Use Code is already registered."; 
 $titClass['dubleLimit'] = "This Limit Code is already registered."; 
 
 
